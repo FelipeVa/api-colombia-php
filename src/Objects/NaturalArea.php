@@ -3,7 +3,6 @@
 namespace FelipeVa\ApiColombia\Objects;
 
 /**
- *
  * @phpstan-type NaturalAreaData array{id: int, name: string, categoryNaturalAreaId: int, areaGroupId: int|null, departmentId: int|null, daneCode: int|null, department: null, landArea: int|null, maritimeArea: int|null, categoryNaturalArea: string|null}
  */
 class NaturalArea
@@ -16,7 +15,7 @@ class NaturalArea
         public ?int $areaGroupId = null,
         public ?int $departmentId = null,
         public ?int $daneCode = null,
-        public ?int $landArea = null,
+        public ?float $landArea = null,
         public ?int $maritimeArea = null,
         public ?string $categoryNaturalArea = null,
     ) {

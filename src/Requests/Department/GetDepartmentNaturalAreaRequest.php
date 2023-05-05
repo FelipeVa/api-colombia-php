@@ -2,9 +2,7 @@
 
 namespace FelipeVa\ApiColombia\Requests\Department;
 
-use FelipeVa\ApiColombia\Objects\City;
 use FelipeVa\ApiColombia\Objects\NaturalArea;
-use FelipeVa\ApiColombia\Responses\Department\GetDepartmentCityResponse;
 use FelipeVa\ApiColombia\Responses\Department\GetDepartmentNaturalAreaResponse;
 use Saloon\Contracts\Response;
 use Saloon\Enums\Method;

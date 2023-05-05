@@ -9,8 +9,8 @@ namespace FelipeVa\ApiColombia\Objects;
 class City
 {
     /**
-     * @param array<int, mixed> $touristAttractions
-     * @param array<int, mixed> $presidents
+     * @param  array<int, mixed>  $touristAttractions
+     * @param  array<int, mixed>  $presidents
      */
     public function __construct(
         public int $id,

@@ -13,7 +13,6 @@ use Saloon\Contracts\Response;
 class GetDepartmentNaturalAreaResponse
 {
     /**
-     * @param Response $response
      * @return array<int, NaturalArea>
      */
     public static function make(Response $response): array

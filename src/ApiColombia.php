@@ -50,6 +50,6 @@ class ApiColombia extends Connector
 
     public function departments(): DepartmentResource
     {
-       return new DepartmentResource($this);
+        return new DepartmentResource($this);
     }
 }
