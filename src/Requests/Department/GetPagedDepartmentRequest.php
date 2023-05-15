@@ -20,6 +20,7 @@ class GetPagedDepartmentRequest extends Request
     {
 
     }
+
     public function resolveEndpoint(): string
     {
         return "/Department/pagedList?Page=$this->page&PageSize=$this->pageSize";
