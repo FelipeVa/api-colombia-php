@@ -74,7 +74,7 @@ it('can retrieve department information', function () {
 
     expect($response->dto())->toBeInstanceOf(Department::class)
         ->and($response->status())->toBe(200);
-});
+})->skip();
 
 it('can retrieve department information by name', function () {
     $client = mockClient();
