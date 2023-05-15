@@ -10,7 +10,7 @@ class City
 {
     /**
      * @param  null|array<int, TouristAttraction>|array<int, null>  $touristAttractions
-     * @param mixed[]|null $presidents
+     * @param  mixed[]|null  $presidents
      */
     public function __construct(
         public int $id,
