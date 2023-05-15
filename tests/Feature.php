@@ -4,7 +4,9 @@ use FelipeVa\ApiColombia\Objects\City;
 use FelipeVa\ApiColombia\Objects\Country;
 use FelipeVa\ApiColombia\Objects\Department;
 use FelipeVa\ApiColombia\Objects\NaturalArea;
+use FelipeVa\ApiColombia\Objects\Paged;
 use FelipeVa\ApiColombia\Objects\Region;
+use FelipeVa\ApiColombia\Objects\TouristAttraction;
 use FelipeVa\ApiColombia\Requests\Country\GetCountryRequest;
 use Saloon\Exceptions\Request\Statuses\NotFoundException;
 use Saloon\Http\Faking\MockResponse;
@@ -74,6 +76,38 @@ it('can retrieve department information', function () {
         ->and($response->status())->toBe(200);
 });
 
+it('can retrieve department information by name', function () {
+    $client = mockClient();
+
+    $response = $client->departments()->getByName('Cundinamarca');
+
+    expect($response->dto())->toBeInstanceOf(Department::class)
+        ->and($response->status())->toBe(200);
+});
+
+it('can retrieve departments by search', function () {
+    $client = mockClient();
+
+    $response = $client->departments()->search('Cundinamarca');
+
+    expect($response->dto())->toBeArray()
+        ->and($response->dto())->toContainOnlyInstancesOf(Department::class)
+        ->and($response->status())->toBe(200);
+});
+
+it('can retrieve paged departments', function () {
+    $client = mockClient();
+
+    $response = $client->departments()->paged(
+        page: 1,
+        pageSize: 10
+    );
+
+    expect($response->dto())->toBeInstanceOf(Paged::class)
+        ->and($response->dto()->data)->toContainOnlyInstancesOf(Department::class)
+        ->and($response->status())->toBe(200);
+});
+
 it('can retrieve department cities', function () {
     $client = mockClient();
 
@@ -91,5 +125,15 @@ it('can retrieve department natual areas', function () {
 
     expect($response->dto())->toBeArray()
         ->and($response->dto())->toContainOnlyInstancesOf(NaturalArea::class)
+        ->and($response->status())->toBe(200);
+});
+
+it('can retrieve department tourist attraction', function () {
+    $client = mockClient();
+
+    $response = $client->departments()->touristAttractions(2);
+
+    expect($response->dto())->toBeArray()
+        ->and($response->dto())->toContainOnlyInstancesOf(TouristAttraction::class)
         ->and($response->status())->toBe(200);
 });
