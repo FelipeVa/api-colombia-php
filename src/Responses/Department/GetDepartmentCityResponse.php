@@ -18,6 +18,6 @@ class GetDepartmentCityResponse
         /** @var CityDataWithoutDepartment[] $data */
         $data = $response->json();
 
-        return array_map(fn ($city) => new City(...$city), $data);
+        return array_map(fn ($city): City => new City(...$city), $data);
     }
 }

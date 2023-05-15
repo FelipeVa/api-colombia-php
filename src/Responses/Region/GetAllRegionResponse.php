@@ -26,6 +26,6 @@ class GetAllRegionResponse
         /** @var array<int, RegionData> $data */
         $data = $response->json();
 
-        return array_map(fn ($region) => new Region(...$region), $data);
+        return array_map(fn ($region): Region => new Region(...$region), $data);
     }
 }

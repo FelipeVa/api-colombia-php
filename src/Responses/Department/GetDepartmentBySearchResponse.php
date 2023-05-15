@@ -19,11 +19,11 @@ class GetDepartmentBySearchResponse
         /** @var DepartmentData[] $data */
         $data = $response->json();
 
-        if (empty($data)) {
+        if ($data === []) {
             return [];
         }
 
-        return array_map(fn ($department) => new Department(...array_merge($department, [
+        return array_map(fn ($department): Department => new Department(...array_merge($department, [
             'cityCapital' => $department['cityCapital'] ? new City(...$department['cityCapital']) : null,
         ])), $data);
     }

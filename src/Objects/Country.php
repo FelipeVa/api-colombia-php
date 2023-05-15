@@ -8,9 +8,9 @@ namespace FelipeVa\ApiColombia\Objects;
 class Country
 {
     /**
-     * @param  array<int, string>  $languages
-     * @param  array<int, string>  $borders
-     * @param  array<int, string>  $flags
+     * @param string[]|null $languages
+     * @param string[]|null $borders
+     * @param string[]|null $flags
      */
     public function __construct(
         public int $id,

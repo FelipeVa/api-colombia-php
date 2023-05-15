@@ -13,10 +13,6 @@ use Saloon\Contracts\Response;
  */
 class GetPagedDepartmentResponse
 {
-    public function __construct(
-    ) {
-    }
-
     /**
      * @return Paged<Department>
      */
@@ -29,9 +25,9 @@ class GetPagedDepartmentResponse
             page: $data['page'],
             pageSize: $data['pageSize'],
             totalRecords: $data['totalRecords'],
-            data: ! empty($data['data']) ? array_map(fn ($department) => new Department(...array_merge($department, [
+            data: empty($data['data']) ? [] : array_map(fn ($department): Department => new Department(...array_merge($department, [
                 'cityCapital' => $department['cityCapital'] ? new City(...$department['cityCapital']) : null,
-            ])), $data['data']) : [],
+            ])), $data['data']),
         );
     }
 }

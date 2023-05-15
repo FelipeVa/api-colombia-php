@@ -23,6 +23,6 @@ class GetRegionDepartmentResponse
             return [];
         }
 
-        return array_map(fn ($department) => new Department(...$department), $data['departments']);
+        return array_map(fn ($department): Department => new Department(...$department), $data['departments']);
     }
 }

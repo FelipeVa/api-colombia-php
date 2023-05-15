@@ -21,10 +21,10 @@ class GetDepartmentNaturalAreaResponse
         $data = $response->json();
         $data = $data[0]['naturalAreas'] ?? [];
 
-        if (empty($data)) {
+        if ($data === []) {
             return [];
         }
 
-        return array_map(fn ($naturalArea) => new NaturalArea(...$naturalArea), $data);
+        return array_map(fn ($naturalArea): NaturalArea => new NaturalArea(...$naturalArea), $data);
     }
 }

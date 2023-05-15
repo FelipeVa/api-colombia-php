@@ -19,11 +19,11 @@ class GetDepartmentTouristAttractionResponse
         /** @var TouristAttractionData[] $data */
         $data = $response->json();
 
-        if (empty($data)) {
+        if ($data === []) {
             return [];
         }
 
-        return array_map(fn ($touristAttraction) => new TouristAttraction(...array_merge($touristAttraction, [
+        return array_map(fn ($touristAttraction): TouristAttraction => new TouristAttraction(...array_merge($touristAttraction, [
             'city' => $touristAttraction['city'] ? new City(...$touristAttraction['city']) : null,
         ])), $data);
     }

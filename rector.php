@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 use Rector\CodeQuality\Rector\Class_\InlineConstructorDefaultToPropertyRector;
 use Rector\Config\RectorConfig;
+use Rector\Php74\Rector\FuncCall\ArraySpreadInsteadOfArrayMergeRector;
+use Rector\Privatization\Rector\Class_\FinalizeClassesWithoutChildrenRector;
 use Rector\Set\ValueObject\LevelSetList;
 use Rector\Set\ValueObject\SetList;
 
@@ -14,6 +16,13 @@ return static function (RectorConfig $rectorConfig): void {
 
     $rectorConfig->rules([
         InlineConstructorDefaultToPropertyRector::class,
+    ]);
+
+    $rectorConfig->importNames();
+
+    $rectorConfig->skip([
+        FinalizeClassesWithoutChildrenRector::class,
+        ArraySpreadInsteadOfArrayMergeRector::class,
     ]);
 
     $rectorConfig->sets([

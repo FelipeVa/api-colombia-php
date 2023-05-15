@@ -11,10 +11,6 @@ use Saloon\Contracts\Response;
  */
 class GetAllDepartmentResponse
 {
-    public function __construct(
-    ) {
-    }
-
     /**
      * @return array<int, Department>
      */
@@ -23,7 +19,7 @@ class GetAllDepartmentResponse
         /** @var array<int, DepartmentData> $data */
         $data = $response->json();
 
-        return array_map(fn ($department) => new Department(...array_merge($department, [
+        return array_map(fn ($department): Department => new Department(...array_merge($department, [
             'cityCapital' => $department['cityCapital'] ? new City(...$department['cityCapital']) : null,
         ])), $data);
     }
