@@ -9,9 +9,7 @@ use Saloon\Traits\Responses\HasResponse;
 
 /**
  * @phpstan-type CityData array{id: int, name: string|null, description: string|null, surface: int|null, population: int|null, postalCode: string|null, departmentId: int, department: null, touristAttractions: null, presidents: null}
- *
  * @phpstan-type NaturalAreaData array{id: int, name: string, categoryNaturalAreaId: int, areaGroupId: int|null, departmentId: int|null, department: null, daneCode: int|null, landArea: int|null, maritimeArea: int|null, categoryNaturalArea: string|null}
- *
  * @phpstan-type DepartmentData array{id: int, name: string|null, description: string|null, cityCapitalId: int|null, municipalities: int|null, surface: int, population: int|null, phonePrefix: string|null, countryId: int, cityCapital:CityData|null, country: string|null, cities: CityData[]|null, regionId: int|null, region: string|null, naturalAreas: NaturalAreaData[]|null, maps: string|null}
  *
  * @implements DataTransferObject<DepartmentData>
