@@ -8,24 +8,16 @@ use Saloon\Contracts\Response;
 /**
  * @phpstan-import-type RegionData from Region
  */
-class GetAllRegionResponse
+final class GetAllRegionResponse
 {
-    /**
-     * @param  array<int, RegionData>  $regions
-     */
-    public function __construct(
-        public array $regions,
-    ) {
-    }
-
     /**
      * @return array<int, Region>
      */
     public static function make(Response $response): array
     {
-        /** @var array<int, RegionData> $data */
+        /** @var RegionData[] $data */
         $data = $response->json();
 
-        return array_map(fn ($region): Region => new Region(...$region), $data);
+        return array_map(fn ($region): Region => Region::from($region), $data);
     }
 }

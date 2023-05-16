@@ -2,10 +2,15 @@
 
 namespace FelipeVa\ApiColombia\Objects;
 
+use FelipeVa\ApiColombia\Contracts\DataTransferObject;
+
 /**
- * @phpstan-type NaturalAreaData array{id: int, name: string, categoryNaturalAreaId: int, areaGroupId: int|null, departmentId: int|null, daneCode: int|null, department: null, landArea: int|null, maritimeArea: int|null, categoryNaturalArea: string|null}
+ *
+ * @phpstan-type NaturalAreaData array{id: int, name: string, categoryNaturalAreaId: int, areaGroupId: int|null, departmentId: int|null, daneCode: int|null, department: array{id: int, name: string|null, description: string|null, cityCapitalId: int|null, municipalities: int|null, surface: int, population: int|null, phonePrefix: string|null, countryId: int, cityCapital: null, country: string|null, cities: string|null, regionId: int|null, region: string|null, naturalAreas: null, maps: string|null}|null, landArea: int|null, maritimeArea: int|null, categoryNaturalArea: string|null}
+ *
+ * @implements DataTransferObject<NaturalAreaData>
  */
-class NaturalArea
+class NaturalArea implements DataTransferObject
 {
     public function __construct(
         public int $id,
@@ -19,5 +24,12 @@ class NaturalArea
         public ?int $maritimeArea = null,
         public ?string $categoryNaturalArea = null,
     ) {
+    }
+
+    public static function from(array $data): NaturalArea
+    {
+        return new NaturalArea(...array_merge($data, [
+            'department' => !is_null($data['department']) ? Department::from($data['department']) : null,
+        ]));
     }
 }

@@ -16,8 +16,6 @@ class GetDepartmentByNameResponse
         /** @var DepartmentData $data */
         $data = $response->json()[0];
 
-        return new Department(...array_merge($data, [
-            'cityCapital' => $data['cityCapital'] ? new City(...$data['cityCapital']) : null,
-        ]));
+        return Department::from($data);
     }
 }

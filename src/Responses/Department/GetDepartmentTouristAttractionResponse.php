@@ -2,7 +2,6 @@
 
 namespace FelipeVa\ApiColombia\Responses\Department;
 
-use FelipeVa\ApiColombia\Objects\City;
 use FelipeVa\ApiColombia\Objects\TouristAttraction;
 use Saloon\Contracts\Response;
 
@@ -23,8 +22,6 @@ class GetDepartmentTouristAttractionResponse
             return [];
         }
 
-        return array_map(fn ($touristAttraction): TouristAttraction => new TouristAttraction(...array_merge($touristAttraction, [
-            'city' => $touristAttraction['city'] ? new City(...$touristAttraction['city']) : null,
-        ])), $data);
+        return array_map(fn ($touristAttraction): TouristAttraction => TouristAttraction::from($touristAttraction), $data);
     }
 }

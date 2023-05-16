@@ -19,8 +19,6 @@ class GetAllDepartmentResponse
         /** @var array<int, DepartmentData> $data */
         $data = $response->json();
 
-        return array_map(fn ($department): Department => new Department(...array_merge($department, [
-            'cityCapital' => $department['cityCapital'] ? new City(...$department['cityCapital']) : null,
-        ])), $data);
+        return array_map(fn ($department): Department => Department::from($department), $data);
     }
 }

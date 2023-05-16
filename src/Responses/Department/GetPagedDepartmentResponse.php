@@ -2,18 +2,18 @@
 
 namespace FelipeVa\ApiColombia\Responses\Department;
 
-use FelipeVa\ApiColombia\Objects\City;
 use FelipeVa\ApiColombia\Objects\Department;
 use FelipeVa\ApiColombia\Objects\Paged;
 use Saloon\Contracts\Response;
 
 /**
- * @phpstan-import-type DepartmentData from Department
  * @phpstan-import-type PagedData from Paged
  */
 class GetPagedDepartmentResponse
 {
     /**
+     * TODO: fix workaround for phpstan
+     * @param Response $response
      * @return Paged<Department>
      */
     public static function make(Response $response): Paged
@@ -21,13 +21,13 @@ class GetPagedDepartmentResponse
         /** @var PagedData $data */
         $data = $response->json();
 
-        return new Paged(
-            page: $data['page'],
-            pageSize: $data['pageSize'],
-            totalRecords: $data['totalRecords'],
-            data: empty($data['data']) ? [] : array_map(fn ($department): Department => new Department(...array_merge($department, [
-                'cityCapital' => $department['cityCapital'] ? new City(...$department['cityCapital']) : null,
-            ])), $data['data']),
-        );
+        /** @var Paged<Department> $paginated */
+        $paginated = Paged::from(array_merge($data, [
+            'data' => is_null($data['data'])
+                ? []
+                : array_map(fn ($department): Department => Department::from($department), $data['data']),
+        ]));
+
+        return $paginated;
     }
 }

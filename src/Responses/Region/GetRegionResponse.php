@@ -15,6 +15,6 @@ class GetRegionResponse
         /** @var RegionData $data */
         $data = $response->json();
 
-        return new Region(...$data);
+        return Region::from($data);
     }
 }

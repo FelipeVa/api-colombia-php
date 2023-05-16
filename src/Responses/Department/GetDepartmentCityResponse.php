@@ -6,7 +6,7 @@ use FelipeVa\ApiColombia\Objects\City;
 use Saloon\Contracts\Response;
 
 /**
- * @phpstan-import-type CityDataWithoutDepartment from City
+ * @phpstan-import-type CityData from City
  */
 class GetDepartmentCityResponse
 {
@@ -15,9 +15,9 @@ class GetDepartmentCityResponse
      */
     public static function make(Response $response): array
     {
-        /** @var CityDataWithoutDepartment[] $data */
+        /** @var CityData[] $data */
         $data = $response->json();
 
-        return array_map(fn ($city): City => new City(...$city), $data);
+        return array_map(fn ($city): City => City::from($city), $data);
     }
 }

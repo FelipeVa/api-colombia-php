@@ -19,10 +19,10 @@ class GetRegionDepartmentResponse
         /** @var RegionData $data */
         $data = $response->json();
 
-        if (empty($data['departments'])) {
+        if (is_null($data['departments'])) {
             return [];
         }
 
-        return array_map(fn ($department): Department => new Department(...$department), $data['departments']);
+        return array_map(fn ($department): Department => Department::from($department), $data['departments']);
     }
 }

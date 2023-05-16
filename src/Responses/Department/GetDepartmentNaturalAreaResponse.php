@@ -2,13 +2,11 @@
 
 namespace FelipeVa\ApiColombia\Responses\Department;
 
-use FelipeVa\ApiColombia\Objects\Department;
 use FelipeVa\ApiColombia\Objects\NaturalArea;
 use Saloon\Contracts\Response;
 
 /**
  * @phpstan-import-type NaturalAreaData from NaturalArea
- * @phpstan-import-type DepartmentDataNaturalArea from Department
  */
 class GetDepartmentNaturalAreaResponse
 {
@@ -17,14 +15,14 @@ class GetDepartmentNaturalAreaResponse
      */
     public static function make(Response $response): array
     {
-        /** @var array<int, array{naturalAreas: NaturalAreaData[]}> $data */
+        /** @var array<int, array{naturalAreas: NaturalAreaData[]|null}> $data */
         $data = $response->json();
-        $data = $data[0]['naturalAreas'] ?? [];
+        $naturalAreas = $data[0]['naturalAreas'];
 
-        if ($data === []) {
+        if (is_null($naturalAreas)) {
             return [];
         }
 
-        return array_map(fn ($naturalArea): NaturalArea => new NaturalArea(...$naturalArea), $data);
+        return array_map(fn ($naturalArea): NaturalArea => NaturalArea::from($naturalArea), $naturalAreas);
     }
 }
