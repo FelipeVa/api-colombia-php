@@ -206,8 +206,6 @@ it('can retrieve president information', function () {
 
     $response = $client->presidents()->get(1);
 
-    dd($response->dto());
-
     expect($response->dto())->toBeInstanceOf(President::class)
         ->and($response->status())->toBe(200);
 });
