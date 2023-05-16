@@ -25,7 +25,7 @@ it('can\'t retrieve country information for wrong country', function () {
         GetCountryRequest::class => MockResponse::fixture('countries.get.wrong'),
     ]);
 
-    expect(fn() => $client->countries()->get('United States'))
+    expect(fn () => $client->countries()->get('United States'))
         ->toThrow(NotFoundException::class);
 });
 

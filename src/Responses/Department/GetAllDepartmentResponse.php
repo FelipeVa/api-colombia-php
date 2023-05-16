@@ -22,6 +22,6 @@ class GetAllDepartmentResponse
             return [];
         }
 
-        return array_map(fn($department): Department => Department::from($department), $data);
+        return array_map(fn ($department): Department => Department::from($department), $data);
     }
 }

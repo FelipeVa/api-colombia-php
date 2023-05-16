@@ -26,7 +26,6 @@ class GetCityByNameRequest extends Request
     }
 
     /**
-     * @param Response $response
      * @return array<int, City>
      */
     public function createDtoFromResponse(Response $response): array

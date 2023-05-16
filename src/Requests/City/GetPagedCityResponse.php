@@ -13,7 +13,7 @@ class GetPagedCityResponse
 {
     /**
      * TODO: fix workaround for phpstan
-     * @param Response $response
+     *
      * @return Paged<City>
      */
     public static function make(Response $response): Paged

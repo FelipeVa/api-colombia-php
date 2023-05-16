@@ -7,8 +7,6 @@ use FelipeVa\ApiColombia\Requests\City\GetCityByNameRequest;
 use FelipeVa\ApiColombia\Requests\City\GetCityBySearchRequest;
 use FelipeVa\ApiColombia\Requests\City\GetCityRequest;
 use FelipeVa\ApiColombia\Requests\City\GetPagedCityRequest;
-use FelipeVa\ApiColombia\Requests\Department\GetPagedDepartmentRequest;
-use FelipeVa\ApiColombia\Requests\Region\GetRegionDepartmentRequest;
 use Saloon\Contracts\Response;
 
 class CityResource extends Resource
@@ -30,7 +28,7 @@ class CityResource extends Resource
 
     public function search(string $searchValue): Response
     {
-       return $this->connector->send(new GetCityBySearchRequest($searchValue));
+        return $this->connector->send(new GetCityBySearchRequest($searchValue));
     }
 
     public function paged(int $page, int $pageSize): Response

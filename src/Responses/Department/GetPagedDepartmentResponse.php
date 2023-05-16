@@ -13,7 +13,7 @@ class GetPagedDepartmentResponse
 {
     /**
      * TODO: fix workaround for phpstan
-     * @param Response $response
+     *
      * @return Paged<Department>
      */
     public static function make(Response $response): Paged

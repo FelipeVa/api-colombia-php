@@ -39,7 +39,7 @@ class City implements DataTransferObject, WithResponse
     public static function from(array $data): City
     {
         return new self(...array_merge($data, [
-            'department' => !is_null($data['department']) ? Department::from($data['department']) : null,
+            'department' => is_null($data['department']) ? null : Department::from($data['department']),
         ]));
     }
 }

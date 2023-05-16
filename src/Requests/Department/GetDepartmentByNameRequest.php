@@ -29,7 +29,6 @@ class GetDepartmentByNameRequest extends Request
     }
 
     /**
-     * @param Response $response
      * @return array<int, Department>
      */
     public function createDtoFromResponse(Response $response): array

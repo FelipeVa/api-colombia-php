@@ -30,7 +30,7 @@ class Paged implements DataTransferObject, WithResponse
     }
 
     /**
-     * @param PagedData $data
+     * @param  PagedData  $data
      * @return Paged<T>
      */
     public static function from(array $data): Paged

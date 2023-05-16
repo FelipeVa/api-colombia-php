@@ -14,8 +14,7 @@ class ApiColombia extends Connector
 {
     public function __construct(
         protected string $apiVersion = 'v1'
-    )
-    {
+    ) {
 
     }
 
