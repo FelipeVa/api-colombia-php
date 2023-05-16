@@ -3,6 +3,8 @@
 namespace FelipeVa\ApiColombia\Objects;
 
 use FelipeVa\ApiColombia\Contracts\DataTransferObject;
+use Saloon\Contracts\DataObjects\WithResponse;
+use Saloon\Traits\Responses\HasResponse;
 
 /**
  * @phpstan-import-type CityData from City
@@ -11,8 +13,10 @@ use FelipeVa\ApiColombia\Contracts\DataTransferObject;
  *
  * @implements DataTransferObject<TouristAttractionData>
  */
-class TouristAttraction implements DataTransferObject
+class TouristAttraction implements DataTransferObject, WithResponse
 {
+    use HasResponse;
+
     /**
      * @param  array<int, string>|null  $images
      */

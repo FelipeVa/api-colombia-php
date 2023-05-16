@@ -3,6 +3,8 @@
 namespace FelipeVa\ApiColombia\Objects;
 
 use FelipeVa\ApiColombia\Contracts\DataTransferObject;
+use Saloon\Contracts\DataObjects\WithResponse;
+use Saloon\Traits\Responses\HasResponse;
 
 /**
  *
@@ -10,8 +12,10 @@ use FelipeVa\ApiColombia\Contracts\DataTransferObject;
  *
  * @implements DataTransferObject<NaturalAreaData>
  */
-class NaturalArea implements DataTransferObject
+class NaturalArea implements DataTransferObject, WithResponse
 {
+    use HasResponse;
+
     public function __construct(
         public int $id,
         public string $name,

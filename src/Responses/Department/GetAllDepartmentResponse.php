@@ -2,7 +2,6 @@
 
 namespace FelipeVa\ApiColombia\Responses\Department;
 
-use FelipeVa\ApiColombia\Objects\City;
 use FelipeVa\ApiColombia\Objects\Department;
 use Saloon\Contracts\Response;
 

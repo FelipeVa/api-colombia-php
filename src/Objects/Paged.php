@@ -3,6 +3,8 @@
 namespace FelipeVa\ApiColombia\Objects;
 
 use FelipeVa\ApiColombia\Contracts\DataTransferObject;
+use Saloon\Contracts\DataObjects\WithResponse;
+use Saloon\Traits\Responses\HasResponse;
 
 /**
  * @template T
@@ -11,8 +13,10 @@ use FelipeVa\ApiColombia\Contracts\DataTransferObject;
  *
  * @implements DataTransferObject<PagedData>
  */
-class Paged implements DataTransferObject
+class Paged implements DataTransferObject, WithResponse
 {
+    use HasResponse;
+
     /**
      * @param  T[]|null  $data
      */

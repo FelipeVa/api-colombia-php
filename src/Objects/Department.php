@@ -3,14 +3,18 @@
 namespace FelipeVa\ApiColombia\Objects;
 
 use FelipeVa\ApiColombia\Contracts\DataTransferObject;
+use Saloon\Contracts\DataObjects\WithResponse;
+use Saloon\Traits\Responses\HasResponse;
 
 /**
  * @phpstan-type DepartmentData array{id: int, name: string|null, description: string|null, cityCapitalId: int|null, municipalities: int|null, surface: int, population: int|null, phonePrefix: string|null, countryId: int, cityCapital: array{id: int, name: string, description: string, surface: int, population: int, postalCode: string, department: null, departmentId: int, touristAttractions: null, presidents: null }|null, country: string|null, cities: string|null, regionId: int|null, region: string|null, naturalAreas: array{id: int, name: string, categoryNaturalAreaId: int, areaGroupId: int|null, departmentId: int|null, department: null, daneCode: int|null, landArea: int|null, maritimeArea: int|null, categoryNaturalArea: string|null}[]|null, maps: string|null}
  *
  * @implements DataTransferObject<DepartmentData>
  */
-class Department implements DataTransferObject
+class Department implements DataTransferObject, WithResponse
 {
+    use HasResponse;
+
     /**
      * @param NaturalArea[]|null $naturalAreas
      */

@@ -3,6 +3,8 @@
 namespace FelipeVa\ApiColombia\Objects;
 
 use FelipeVa\ApiColombia\Contracts\DataTransferObject;
+use Saloon\Contracts\DataObjects\WithResponse;
+use Saloon\Traits\Responses\HasResponse;
 
 /**
  * @phpstan-import-type DepartmentData from Department
@@ -11,8 +13,10 @@ use FelipeVa\ApiColombia\Contracts\DataTransferObject;
  *
  * @implements DataTransferObject<RegionData>
  */
-class Region implements DataTransferObject
+class Region implements DataTransferObject, WithResponse
 {
+    use HasResponse;
+
     /**
      * @param  array<int, Department>|null  $departments
      */
