@@ -7,6 +7,7 @@ namespace FelipeVa\ApiColombia;
 use FelipeVa\ApiColombia\Resources\CityResource;
 use FelipeVa\ApiColombia\Resources\CountryResource;
 use FelipeVa\ApiColombia\Resources\DepartmentResource;
+use FelipeVa\ApiColombia\Resources\PresidentResource;
 use FelipeVa\ApiColombia\Resources\RegionResource;
 use Saloon\Http\Connector;
 
@@ -14,7 +15,8 @@ class ApiColombia extends Connector
 {
     public function __construct(
         protected string $apiVersion = 'v1'
-    ) {
+    )
+    {
 
     }
 
@@ -57,5 +59,10 @@ class ApiColombia extends Connector
     public function cities(): CityResource
     {
         return new CityResource($this);
+    }
+
+    public function presidents(): PresidentResource
+    {
+        return new PresidentResource($this);
     }
 }

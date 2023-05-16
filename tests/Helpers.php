@@ -15,6 +15,8 @@ use FelipeVa\ApiColombia\Requests\Department\GetDepartmentNaturalAreaRequest;
 use FelipeVa\ApiColombia\Requests\Department\GetDepartmentRequest;
 use FelipeVa\ApiColombia\Requests\Department\GetDepartmentTouristAttractionRequest;
 use FelipeVa\ApiColombia\Requests\Department\GetPagedDepartmentRequest;
+use FelipeVa\ApiColombia\Requests\President\GetAllPresidentRequest;
+use FelipeVa\ApiColombia\Requests\President\GetPresidentRequest;
 use FelipeVa\ApiColombia\Requests\Region\GetAllRegionRequest;
 use FelipeVa\ApiColombia\Requests\Region\GetRegionDepartmentRequest;
 use FelipeVa\ApiColombia\Requests\Region\GetRegionRequest;
@@ -51,6 +53,8 @@ function mockClient(array $mocks = []): ApiColombia
         GetCityByNameRequest::class => MockResponse::fixture('cities.get.by-name'),
         GetCityBySearchRequest::class => MockResponse::fixture('cities.get.by-search'),
         GetPagedCityRequest::class => MockResponse::fixture('cities.get.paged'),
+        GetAllPresidentRequest::class => MockResponse::fixture('presidents.get.all'),
+        GetPresidentRequest::class => MockResponse::fixture('presidents.get.1'),
     ], $mocks));
 
     $apiColombia->withMockClient($mockClient);

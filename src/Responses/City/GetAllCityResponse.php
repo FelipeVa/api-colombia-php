@@ -15,7 +15,7 @@ class GetAllCityResponse
      */
     public static function make(Response $response): array
     {
-        /** @var array<int, CityData> $data */
+        /** @var CityData[] $data */
         $data = $response->json();
 
         if ($data === []) {

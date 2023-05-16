@@ -5,6 +5,7 @@ use FelipeVa\ApiColombia\Objects\Country;
 use FelipeVa\ApiColombia\Objects\Department;
 use FelipeVa\ApiColombia\Objects\NaturalArea;
 use FelipeVa\ApiColombia\Objects\Paged;
+use FelipeVa\ApiColombia\Objects\President;
 use FelipeVa\ApiColombia\Objects\Region;
 use FelipeVa\ApiColombia\Objects\TouristAttraction;
 use FelipeVa\ApiColombia\Requests\Country\GetCountryRequest;
@@ -25,7 +26,7 @@ it('can\'t retrieve country information for wrong country', function () {
         GetCountryRequest::class => MockResponse::fixture('countries.get.wrong'),
     ]);
 
-    expect(fn () => $client->countries()->get('United States'))
+    expect(fn() => $client->countries()->get('United States'))
         ->toThrow(NotFoundException::class);
 });
 
@@ -188,5 +189,25 @@ it('can retrieve paged cities', function () {
 
     expect($response->dto())->toBeInstanceOf(Paged::class)
         ->and($response->dto()->data)->toContainOnlyInstancesOf(City::class)
+        ->and($response->status())->toBe(200);
+});
+
+it('can retrieve all presidents', function () {
+    $client = mockClient();
+    $response = $client->presidents()->all();
+
+    expect($response->dto())->toBeArray()
+        ->and($response->dto())->toContainOnlyInstancesOf(President::class)
+        ->and($response->status())->toBe(200);
+});
+
+it('can retrieve president information', function () {
+    $client = mockClient();
+
+    $response = $client->presidents()->get(1);
+
+    dd($response->dto());
+
+    expect($response->dto())->toBeInstanceOf(President::class)
         ->and($response->status())->toBe(200);
 });
