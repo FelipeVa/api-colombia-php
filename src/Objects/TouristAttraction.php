@@ -34,7 +34,7 @@ class TouristAttraction implements DataTransferObject, WithResponse
 
     public static function from(array $data): TouristAttraction
     {
-        return new TouristAttraction(...array_merge($data, [
+        return new self(...array_merge($data, [
             'city' => !is_null($data['city']) ? City::from($data['city']) : null,
         ]));
     }

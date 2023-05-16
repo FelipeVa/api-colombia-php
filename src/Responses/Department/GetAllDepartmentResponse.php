@@ -18,6 +18,10 @@ class GetAllDepartmentResponse
         /** @var array<int, DepartmentData> $data */
         $data = $response->json();
 
-        return array_map(fn ($department): Department => Department::from($department), $data);
+        if ($data === []) {
+            return [];
+        }
+
+        return array_map(fn($department): Department => Department::from($department), $data);
     }
 }

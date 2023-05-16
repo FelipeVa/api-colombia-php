@@ -3,7 +3,7 @@
 namespace FelipeVa\ApiColombia\Requests\Department;
 
 use FelipeVa\ApiColombia\Objects\Department;
-use FelipeVa\ApiColombia\Responses\Department\GetDepartmentByNameResponse;
+use FelipeVa\ApiColombia\Responses\Department\GetAllDepartmentResponse;
 use Saloon\Contracts\Response;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -28,8 +28,12 @@ class GetDepartmentByNameRequest extends Request
         return "/Department/name/$this->departmentName";
     }
 
-    public function createDtoFromResponse(Response $response): Department
+    /**
+     * @param Response $response
+     * @return array<int, Department>
+     */
+    public function createDtoFromResponse(Response $response): array
     {
-        return GetDepartmentByNameResponse::make($response);
+        return GetAllDepartmentResponse::make($response);
     }
 }

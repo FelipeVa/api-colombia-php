@@ -1,15 +1,15 @@
 <?php
 
-namespace FelipeVa\ApiColombia\Requests\Department;
+namespace FelipeVa\ApiColombia\Requests\City;
 
-use FelipeVa\ApiColombia\Objects\Department;
-use FelipeVa\ApiColombia\Responses\Department\GetAllDepartmentResponse;
+use FelipeVa\ApiColombia\Objects\City;
+use FelipeVa\ApiColombia\Responses\City\GetAllCityResponse;
 use Saloon\Contracts\Response;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Plugins\AlwaysThrowOnErrors;
 
-class GetDepartmentBySearchRequest extends Request
+class GetCityBySearchRequest extends Request
 {
     use AlwaysThrowOnErrors;
 
@@ -22,14 +22,14 @@ class GetDepartmentBySearchRequest extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/Department/search/$this->searchValue";
+        return "/City/search/$this->searchValue";
     }
 
     /**
-     * @return array<int, Department>
+     * @return array<int, City>
      */
     public function createDtoFromResponse(Response $response): array
     {
-        return GetAllDepartmentResponse::make($response);
+        return GetAllCityResponse::make($response);
     }
 }

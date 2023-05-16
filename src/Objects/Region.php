@@ -30,7 +30,7 @@ class Region implements DataTransferObject, WithResponse
 
     public static function from(array $data): Region
     {
-        return new Region(...array_merge($data, [
+        return new self(...array_merge($data, [
             'departments' => $data['departments']
                 ? array_map(fn ($department): Department => Department::from($department), $data['departments'])
                 : null,

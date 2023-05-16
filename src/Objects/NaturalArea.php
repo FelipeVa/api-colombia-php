@@ -8,7 +8,7 @@ use Saloon\Traits\Responses\HasResponse;
 
 /**
  *
- * @phpstan-type NaturalAreaData array{id: int, name: string, categoryNaturalAreaId: int, areaGroupId: int|null, departmentId: int|null, daneCode: int|null, department: array{id: int, name: string|null, description: string|null, cityCapitalId: int|null, municipalities: int|null, surface: int, population: int|null, phonePrefix: string|null, countryId: int, cityCapital: null, country: string|null, cities: string|null, regionId: int|null, region: string|null, naturalAreas: null, maps: string|null}|null, landArea: int|null, maritimeArea: int|null, categoryNaturalArea: string|null}
+ * @phpstan-type NaturalAreaData array{id: int, name: string, categoryNaturalAreaId: int, areaGroupId: int|null, departmentId: int|null, daneCode: int|null, department: array{id: int, name: string|null, description: string|null, cityCapitalId: int|null, municipalities: int|null, surface: int, population: int|null, phonePrefix: string|null, countryId: int, cityCapital: null, country: string|null, cities: null, regionId: int|null, region: string|null, naturalAreas: null, maps: string|null}|null, landArea: int|null, maritimeArea: int|null, categoryNaturalArea: string|null}
  *
  * @implements DataTransferObject<NaturalAreaData>
  */
@@ -32,7 +32,7 @@ class NaturalArea implements DataTransferObject, WithResponse
 
     public static function from(array $data): NaturalArea
     {
-        return new NaturalArea(...array_merge($data, [
+        return new self(...array_merge($data, [
             'department' => !is_null($data['department']) ? Department::from($data['department']) : null,
         ]));
     }

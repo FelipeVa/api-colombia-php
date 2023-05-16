@@ -1,6 +1,11 @@
 <?php
 
 use FelipeVa\ApiColombia\ApiColombia;
+use FelipeVa\ApiColombia\Requests\City\GetAllCityRequest;
+use FelipeVa\ApiColombia\Requests\City\GetCityByNameRequest;
+use FelipeVa\ApiColombia\Requests\City\GetCityBySearchRequest;
+use FelipeVa\ApiColombia\Requests\City\GetCityRequest;
+use FelipeVa\ApiColombia\Requests\City\GetPagedCityRequest;
 use FelipeVa\ApiColombia\Requests\Country\GetCountryRequest;
 use FelipeVa\ApiColombia\Requests\Department\GetAllDepartmentRequest;
 use FelipeVa\ApiColombia\Requests\Department\GetDepartmentByNameRequest;
@@ -41,6 +46,11 @@ function mockClient(array $mocks = []): ApiColombia
         GetDepartmentByNameRequest::class => MockResponse::fixture('departments.get.by-name'),
         GetDepartmentBySearchRequest::class => MockResponse::fixture('departments.get.by-search'),
         GetPagedDepartmentRequest::class => MockResponse::fixture('departments.get.paged'),
+        GetAllCityRequest::class => MockResponse::fixture('cities.get.all'),
+        GetCityRequest::class => MockResponse::fixture('cities.get.1'),
+        GetCityByNameRequest::class => MockResponse::fixture('cities.get.by-name'),
+        GetCityBySearchRequest::class => MockResponse::fixture('cities.get.by-search'),
+        GetPagedCityRequest::class => MockResponse::fixture('cities.get.paged'),
     ], $mocks));
 
     $apiColombia->withMockClient($mockClient);

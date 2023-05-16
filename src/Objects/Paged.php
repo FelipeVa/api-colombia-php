@@ -35,6 +35,6 @@ class Paged implements DataTransferObject, WithResponse
      */
     public static function from(array $data): Paged
     {
-        return new Paged(...$data);
+        return new self(...$data);
     }
 }

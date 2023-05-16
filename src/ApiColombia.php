@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace FelipeVa\ApiColombia;
 
+use FelipeVa\ApiColombia\Resources\CityResource;
 use FelipeVa\ApiColombia\Resources\CountryResource;
 use FelipeVa\ApiColombia\Resources\DepartmentResource;
 use FelipeVa\ApiColombia\Resources\RegionResource;
@@ -13,7 +14,8 @@ class ApiColombia extends Connector
 {
     public function __construct(
         protected string $apiVersion = 'v1'
-    ) {
+    )
+    {
 
     }
 
@@ -51,5 +53,10 @@ class ApiColombia extends Connector
     public function departments(): DepartmentResource
     {
         return new DepartmentResource($this);
+    }
+
+    public function cities(): CityResource
+    {
+        return new CityResource($this);
     }
 }
