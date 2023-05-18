@@ -22,21 +22,6 @@ class CategoryNaturalAreaResource extends Resource
         return $this->connector->send(new GetCategoryNaturalAreaRequest($categoryNaturalAreaId));
     }
 
-    public function getByName(string $presidentName): Response
-    {
-        return $this->connector->send(new GetTouristicAttractionByNameRequest($presidentName));
-    }
-
-    public function search(string $searchValue): Response
-    {
-        return $this->connector->send(new GetTouristicAttractionBySearchRequest($searchValue));
-    }
-
-    public function paged(int $page, int $pageSize): Response
-    {
-        return $this->connector->send(new GetPagedTouristicAttractionRequest($page, $pageSize));
-    }
-
     public function naturalAreas(int $categoryNaturalAreaId): Response
     {
         return $this->connector->send(new GetCategoryNaturalAreaAllNaturalAreaRequest($categoryNaturalAreaId));
