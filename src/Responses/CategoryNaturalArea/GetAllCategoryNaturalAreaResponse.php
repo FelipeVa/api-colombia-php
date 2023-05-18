@@ -11,7 +11,6 @@ use Saloon\Contracts\Response;
 class GetAllCategoryNaturalAreaResponse
 {
     /**
-     * @param Response $response
      * @return CategoryNaturalArea[]
      */
     public static function make(Response $response): array

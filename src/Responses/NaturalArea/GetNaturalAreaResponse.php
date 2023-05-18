@@ -8,7 +8,6 @@ use Saloon\Contracts\Response;
 
 /**
  * @phpstan-import-type NaturalAreaData from NaturalArea
- *
  * @phpstan-import-type CityData from City
  */
 class GetNaturalAreaResponse

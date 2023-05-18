@@ -8,6 +8,7 @@ use Saloon\Traits\Responses\HasResponse;
 
 /**
  * @TODO: typo here departamentId
+ *
  * @phpstan-import-type DepartmentData from Department
  *
  * @phpstan-type MapData array{id: int, name: string|null, description: string|null, departamentId: int|null, urlImages: string[]|null, urlSource: string|null, departament: DepartmentData|null}
@@ -19,7 +20,7 @@ class Map implements DataTransferObject, WithResponse
     use HasResponse;
 
     /**
-     * @param string[] $urlImages
+     * @param  string[]|null  $urlImages
      */
     public function __construct(
         public int $id,
@@ -35,7 +36,7 @@ class Map implements DataTransferObject, WithResponse
     public static function from(array $data): Map
     {
         return new self(...array_merge($data, [
-           'departament' => is_null($data['departament']) ? null : Department::from($data['departament']),
+            'departament' => is_null($data['departament']) ? null : Department::from($data['departament']),
         ]));
     }
 }

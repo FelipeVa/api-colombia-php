@@ -28,7 +28,7 @@ it('can\'t retrieve country information for wrong country', function () {
         GetCountryRequest::class => MockResponse::fixture('countries.get.wrong'),
     ]);
 
-    expect(fn() => $client->countries()->get('United States'))
+    expect(fn () => $client->countries()->get('United States'))
         ->toThrow(NotFoundException::class);
 });
 
@@ -332,7 +332,6 @@ it('can retrieve all natural areas', function () {
         ->and($response->status())->toBe(200);
 });
 
-
 it('can retrieve natural area information', function () {
     $client = mockClient();
 
@@ -375,7 +374,6 @@ it('can retrieve paged natural areas', function () {
         ->and($response->status())->toBe(200);
 });
 
-
 it('can retrieve all maps', function () {
     $client = mockClient();
     $response = $client->maps()->all();
@@ -385,7 +383,6 @@ it('can retrieve all maps', function () {
         ->and($response->status())->toBe(200);
 });
 
-
 it('can retrieve map information', function () {
     $client = mockClient();
 
@@ -394,4 +391,3 @@ it('can retrieve map information', function () {
     expect($response->dto())->toBeInstanceOf(Map::class)
         ->and($response->status())->toBe(200);
 });
-

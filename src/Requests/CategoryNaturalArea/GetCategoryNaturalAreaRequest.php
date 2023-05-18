@@ -3,9 +3,7 @@
 namespace FelipeVa\ApiColombia\Requests\CategoryNaturalArea;
 
 use FelipeVa\ApiColombia\Objects\CategoryNaturalArea;
-use FelipeVa\ApiColombia\Objects\TouristAttraction;
 use FelipeVa\ApiColombia\Responses\CategoryNaturalArea\GetCategoryNaturalAreaResponse;
-use FelipeVa\ApiColombia\Responses\TouristAttraction\GetTouristicAttractionResponse;
 use Saloon\Contracts\Response;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;

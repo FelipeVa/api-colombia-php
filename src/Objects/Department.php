@@ -8,7 +8,8 @@ use Saloon\Contracts\DataObjects\WithResponse;
 use Saloon\Traits\Responses\HasResponse;
 
 /**
- * @phpstan-type MapData array{id: int, name: string|null, description: string|null, departmentId: int|null, urlImages: string[]|null, urlSource: string|null, department: null}
+ * TODO: typo in MapData departament
+ * @phpstan-type MapData array{id: int, name: string|null, description: string|null, departamentId: int|null, urlImages: string[]|null, urlSource: string|null, departament: null}
  * @phpstan-type CityData array{id: int, name: string|null, description: string|null, surface: int|null, population: int|null, postalCode: string|null, departmentId: int, department: null, touristAttractions: null, presidents: null}
  * @phpstan-type CategoryNaturalAreaData array{id: int, name: string|null, description: string|null, naturalAreas: null}
  * @phpstan-type NaturalAreaData array{id: int, name: string, categoryNaturalAreaId: int, areaGroupId: int|null, departmentId: int|null, department: null, daneCode: int|null, landArea: int|null, maritimeArea: int|null, categoryNaturalArea: CategoryNaturalAreaData|null}
@@ -23,7 +24,7 @@ class Department implements DataTransferObject, WithResponse
     /**
      * @param  NaturalArea[]|null  $naturalAreas
      * @param  City[]|null  $cities
-     * @param Map[]|null $maps
+     * @param  Map[]|null  $maps
      */
     public function __construct(
         public int $id,

@@ -3,7 +3,6 @@
 namespace FelipeVa\ApiColombia\Requests\NaturalArea;
 
 use FelipeVa\ApiColombia\Objects\NaturalArea;
-use FelipeVa\ApiColombia\Responses\City\GetAllCityResponse;
 use FelipeVa\ApiColombia\Responses\NaturalArea\GetAllNaturalAreaResponse;
 use Saloon\Contracts\Response;
 use Saloon\Enums\Method;

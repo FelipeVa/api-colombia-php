@@ -2,7 +2,6 @@
 
 namespace FelipeVa\ApiColombia\Resources;
 
-use FelipeVa\ApiColombia\Requests\City\GetPagedCityRequest;
 use FelipeVa\ApiColombia\Requests\NaturalArea\GetAllNaturalAreaRequest;
 use FelipeVa\ApiColombia\Requests\NaturalArea\GetNaturalAreaByNameRequest;
 use FelipeVa\ApiColombia\Requests\NaturalArea\GetNaturalAreaBySearchRequest;

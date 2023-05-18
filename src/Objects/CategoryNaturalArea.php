@@ -19,10 +19,7 @@ class CategoryNaturalArea implements DataTransferObject, WithResponse
     use HasResponse;
 
     /**
-     * @param int $id
-     * @param string|null $name
-     * @param string|null $description
-     * @param array<int, NaturalArea>|null $naturalAreas
+     * @param  array<int, NaturalArea>|null  $naturalAreas
      */
     public function __construct(
         public int $id,

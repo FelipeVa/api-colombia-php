@@ -2,10 +2,8 @@
 
 namespace FelipeVa\ApiColombia\Requests\NaturalArea;
 
-use FelipeVa\ApiColombia\Objects\City;
 use FelipeVa\ApiColombia\Objects\NaturalArea;
 use FelipeVa\ApiColombia\Objects\Paged;
-use FelipeVa\ApiColombia\Responses\City\GetPagedCityResponse;
 use FelipeVa\ApiColombia\Responses\NaturalArea\GetPagedNaturalAreaResponse;
 use Saloon\Contracts\Response;
 use Saloon\Enums\Method;
@@ -29,7 +27,7 @@ class GetPagedNaturalAreaRequest extends Request
     }
 
     /**
-     * @return array<string, int>
+     * @return array{Page: int, PageSize: int}
      */
     protected function defaultQuery(): array
     {

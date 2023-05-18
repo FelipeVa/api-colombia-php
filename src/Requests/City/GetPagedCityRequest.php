@@ -27,7 +27,7 @@ class GetPagedCityRequest extends Request
     }
 
     /**
-     * @return array<string, int>
+     * @return array{Page: int, PageSize: int}
      */
     protected function defaultQuery(): array
     {
