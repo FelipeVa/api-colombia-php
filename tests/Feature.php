@@ -4,6 +4,7 @@ use FelipeVa\ApiColombia\Objects\CategoryNaturalArea;
 use FelipeVa\ApiColombia\Objects\City;
 use FelipeVa\ApiColombia\Objects\Country;
 use FelipeVa\ApiColombia\Objects\Department;
+use FelipeVa\ApiColombia\Objects\Map;
 use FelipeVa\ApiColombia\Objects\NaturalArea;
 use FelipeVa\ApiColombia\Objects\Paged;
 use FelipeVa\ApiColombia\Objects\President;
@@ -312,6 +313,7 @@ it('can retrieve category natural area information', function () {
     expect($response->dto())->toBeInstanceOf(CategoryNaturalArea::class)
         ->and($response->status())->toBe(200);
 });
+
 it('can retrieve category natural area all natural areas', function () {
     $client = mockClient();
 
@@ -320,3 +322,76 @@ it('can retrieve category natural area all natural areas', function () {
     expect($response->dto())->toBeInstanceOf(CategoryNaturalArea::class)
         ->and($response->status())->toBe(200);
 });
+
+it('can retrieve all natural areas', function () {
+    $client = mockClient();
+    $response = $client->naturalAreas()->all();
+
+    expect($response->dto())->toBeArray()
+        ->and($response->dto())->toContainOnlyInstancesOf(NaturalArea::class)
+        ->and($response->status())->toBe(200);
+});
+
+
+it('can retrieve natural area information', function () {
+    $client = mockClient();
+
+    $response = $client->naturalAreas()->get(1);
+
+    expect($response->dto())->toBeInstanceOf(NaturalArea::class)
+        ->and($response->status())->toBe(200);
+});
+
+it('can retrieve natural area by name', function () {
+    $client = mockClient();
+
+    $response = $client->naturalAreas()->getByName('Los Nevados');
+
+    expect($response->dto())->toBeArray()
+        ->and($response->dto())->toContainOnlyInstancesOf(NaturalArea::class)
+        ->and($response->status())->toBe(200);
+});
+
+it('can retrieve natural area by search', function () {
+    $client = mockClient();
+
+    $response = $client->naturalAreas()->search('Los Nevados');
+
+    expect($response->dto())->toBeArray()
+        ->and($response->dto())->toContainOnlyInstancesOf(NaturalArea::class)
+        ->and($response->status())->toBe(200);
+});
+
+it('can retrieve paged natural areas', function () {
+    $client = mockClient();
+
+    $response = $client->naturalAreas()->paged(
+        page: 1,
+        pageSize: 10
+    );
+
+    expect($response->dto())->toBeInstanceOf(Paged::class)
+        ->and($response->dto()->data)->toContainOnlyInstancesOf(NaturalArea::class)
+        ->and($response->status())->toBe(200);
+});
+
+
+it('can retrieve all maps', function () {
+    $client = mockClient();
+    $response = $client->maps()->all();
+
+    expect($response->dto())->toBeArray()
+        ->and($response->dto())->toContainOnlyInstancesOf(Map::class)
+        ->and($response->status())->toBe(200);
+});
+
+
+it('can retrieve map information', function () {
+    $client = mockClient();
+
+    $response = $client->maps()->get(1);
+
+    expect($response->dto())->toBeInstanceOf(Map::class)
+        ->and($response->status())->toBe(200);
+});
+

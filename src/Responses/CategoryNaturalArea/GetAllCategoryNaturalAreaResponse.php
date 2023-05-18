@@ -10,11 +10,19 @@ use Saloon\Contracts\Response;
  */
 class GetAllCategoryNaturalAreaResponse
 {
-    public static function make(Response $response): CategoryNaturalArea
+    /**
+     * @param Response $response
+     * @return CategoryNaturalArea[]
+     */
+    public static function make(Response $response): array
     {
         /** @var array<int, CategoryNaturalAreaData> $data */
         $data = $response->json();
 
-        return CategoryNaturalArea::from($data);
+        if ($data === []) {
+            return [];
+        }
+
+        return array_map(fn ($categoryNaturalArea): CategoryNaturalArea => CategoryNaturalArea::from($categoryNaturalArea), $data);
     }
 }

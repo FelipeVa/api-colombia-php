@@ -3,7 +3,6 @@
 namespace FelipeVa\ApiColombia\Responses\CategoryNaturalArea;
 
 use FelipeVa\ApiColombia\Objects\CategoryNaturalArea;
-use FelipeVa\ApiColombia\Objects\TouristAttraction;
 use Saloon\Contracts\Response;
 
 /**
