@@ -1,5 +1,6 @@
 <?php
 
+use FelipeVa\ApiColombia\Objects\CategoryNaturalArea;
 use FelipeVa\ApiColombia\Objects\City;
 use FelipeVa\ApiColombia\Objects\Country;
 use FelipeVa\ApiColombia\Objects\Department;
@@ -26,7 +27,7 @@ it('can\'t retrieve country information for wrong country', function () {
         GetCountryRequest::class => MockResponse::fixture('countries.get.wrong'),
     ]);
 
-    expect(fn () => $client->countries()->get('United States'))
+    expect(fn() => $client->countries()->get('United States'))
         ->toThrow(NotFoundException::class);
 });
 
@@ -293,3 +294,29 @@ it('can retrieve paged touristic attractions', function () {
         ->and($response->dto()->data)->toContainOnlyInstancesOf(TouristAttraction::class)
         ->and($response->status())->toBe(200);
 })->skip();
+
+it('can retrieve all category natural areas', function () {
+    $client = mockClient();
+    $response = $client->categoryNaturalAreas()->all();
+
+    expect($response->dto())->toBeArray()
+        ->and($response->dto())->toContainOnlyInstancesOf(CategoryNaturalArea::class)
+        ->and($response->status())->toBe(200);
+});
+
+it('can retrieve category natural area information', function () {
+    $client = mockClient();
+
+    $response = $client->categoryNaturalAreas()->get(1);
+
+    expect($response->dto())->toBeInstanceOf(CategoryNaturalArea::class)
+        ->and($response->status())->toBe(200);
+});
+it('can retrieve category natural area all natural areas', function () {
+    $client = mockClient();
+
+    $response = $client->categoryNaturalAreas()->naturalAreas(1);
+
+    expect($response->dto())->toBeInstanceOf(CategoryNaturalArea::class)
+        ->and($response->status())->toBe(200);
+});

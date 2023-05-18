@@ -1,6 +1,9 @@
 <?php
 
 use FelipeVa\ApiColombia\ApiColombia;
+use FelipeVa\ApiColombia\Requests\CategoryNaturalArea\GetAllCategoryNaturalAreaRequest;
+use FelipeVa\ApiColombia\Requests\CategoryNaturalArea\GetCategoryNaturalAreaAllNaturalAreaRequest;
+use FelipeVa\ApiColombia\Requests\CategoryNaturalArea\GetCategoryNaturalAreaRequest;
 use FelipeVa\ApiColombia\Requests\City\GetAllCityRequest;
 use FelipeVa\ApiColombia\Requests\City\GetCityByNameRequest;
 use FelipeVa\ApiColombia\Requests\City\GetCityBySearchRequest;
@@ -71,6 +74,9 @@ function mockClient(array $mocks = []): ApiColombia
         GetTouristicAttractionByNameRequest::class => MockResponse::fixture('touristicAttractions.get.by-name'),
         GetTouristicAttractionBySearchRequest::class => MockResponse::fixture('touristicAttractions.get.by-search'),
         GetPagedTouristicAttractionRequest::class => MockResponse::fixture('touristicAttractions.get.paged'),
+        GetAllCategoryNaturalAreaRequest::class => MockResponse::fixture('categoryNaturalAreas.get.all'),
+        GetCategoryNaturalAreaRequest::class => MockResponse::fixture('categoryNaturalAreas.get.1'),
+        GetCategoryNaturalAreaAllNaturalAreaRequest::class => MockResponse::fixture('categoryNaturalAreas.get.1.natural-areas'),
     ], $mocks));
 
     $apiColombia->withMockClient($mockClient);

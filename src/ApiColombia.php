@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace FelipeVa\ApiColombia;
 
+use FelipeVa\ApiColombia\Resources\CategoryNaturalAreaResource;
 use FelipeVa\ApiColombia\Resources\CityResource;
 use FelipeVa\ApiColombia\Resources\CountryResource;
 use FelipeVa\ApiColombia\Resources\DepartmentResource;
@@ -69,5 +70,10 @@ class ApiColombia extends Connector
     public function touristAttractions(): TouristAttractionResource
     {
         return new TouristAttractionResource($this);
+    }
+
+    public function categoryNaturalAreas(): CategoryNaturalAreaResource
+    {
+        return new CategoryNaturalAreaResource($this);
     }
 }
