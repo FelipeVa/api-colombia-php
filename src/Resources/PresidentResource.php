@@ -2,9 +2,6 @@
 
 namespace FelipeVa\ApiColombia\Resources;
 
-use FelipeVa\ApiColombia\Requests\City\GetCityByNameRequest;
-use FelipeVa\ApiColombia\Requests\City\GetCityBySearchRequest;
-use FelipeVa\ApiColombia\Requests\City\GetPagedCityRequest;
 use FelipeVa\ApiColombia\Requests\President\GetAllPresidentRequest;
 use FelipeVa\ApiColombia\Requests\President\GetPagedPresidentRequest;
 use FelipeVa\ApiColombia\Requests\President\GetPresidentByNameRequest;

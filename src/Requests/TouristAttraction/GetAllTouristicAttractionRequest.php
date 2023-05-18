@@ -2,9 +2,7 @@
 
 namespace FelipeVa\ApiColombia\Requests\TouristAttraction;
 
-use FelipeVa\ApiColombia\Objects\President;
 use FelipeVa\ApiColombia\Objects\TouristAttraction;
-use FelipeVa\ApiColombia\Responses\President\GetAllPresidentResponse;
 use FelipeVa\ApiColombia\Responses\TouristAttraction\GetAllTouristicAttractionResponse;
 use Saloon\Contracts\Response;
 use Saloon\Enums\Method;

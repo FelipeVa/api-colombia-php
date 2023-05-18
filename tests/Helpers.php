@@ -35,7 +35,7 @@ use Saloon\Http\Faking\MockClient;
 use Saloon\Http\Faking\MockResponse;
 
 /**
- * @param array<class-string, Fixture> $mocks
+ * @param  array<class-string, Fixture>  $mocks
  *
  * @throws DirectoryNotFoundException
  * @throws InvalidMockResponseCaptureMethodException
@@ -70,7 +70,7 @@ function mockClient(array $mocks = []): ApiColombia
         GetTouristicAttractionRequest::class => MockResponse::fixture('touristicAttractions.get.1'),
         GetTouristicAttractionByNameRequest::class => MockResponse::fixture('touristicAttractions.get.by-name'),
         GetTouristicAttractionBySearchRequest::class => MockResponse::fixture('touristicAttractions.get.by-search'),
-        GetPagedTouristicAttractionRequest::class => MockResponse::fixture('touristicAttractions.get.paged')
+        GetPagedTouristicAttractionRequest::class => MockResponse::fixture('touristicAttractions.get.paged'),
     ], $mocks));
 
     $apiColombia->withMockClient($mockClient);

@@ -2,10 +2,8 @@
 
 namespace FelipeVa\ApiColombia\Requests\President;
 
-use FelipeVa\ApiColombia\Objects\City;
 use FelipeVa\ApiColombia\Objects\Paged;
 use FelipeVa\ApiColombia\Objects\President;
-use FelipeVa\ApiColombia\Responses\City\GetPagedCityResponse;
 use FelipeVa\ApiColombia\Responses\President\GetPagedPresidentResponse;
 use Saloon\Contracts\Response;
 use Saloon\Enums\Method;
@@ -25,7 +23,7 @@ class GetPagedPresidentRequest extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/President/pagedList";
+        return '/President/pagedList';
     }
 
     /**

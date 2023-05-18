@@ -26,7 +26,7 @@ class GetPagedTouristicAttractionRequest extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/TouristicAttraction/pagedList";
+        return '/TouristicAttraction/pagedList';
     }
 
     /**

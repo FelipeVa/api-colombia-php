@@ -26,7 +26,7 @@ it('can\'t retrieve country information for wrong country', function () {
         GetCountryRequest::class => MockResponse::fixture('countries.get.wrong'),
     ]);
 
-    expect(fn() => $client->countries()->get('United States'))
+    expect(fn () => $client->countries()->get('United States'))
         ->toThrow(NotFoundException::class);
 });
 
@@ -293,4 +293,3 @@ it('can retrieve paged touristic attractions', function () {
         ->and($response->dto()->data)->toContainOnlyInstancesOf(TouristAttraction::class)
         ->and($response->status())->toBe(200);
 })->skip();
-

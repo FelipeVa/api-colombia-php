@@ -68,6 +68,6 @@ class ApiColombia extends Connector
 
     public function touristAttractions(): TouristAttractionResource
     {
-       return new TouristAttractionResource($this);
+        return new TouristAttractionResource($this);
     }
 }

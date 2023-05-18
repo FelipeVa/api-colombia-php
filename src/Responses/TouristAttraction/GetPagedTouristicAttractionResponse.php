@@ -25,7 +25,7 @@ class GetPagedTouristicAttractionResponse
         $paginated = Paged::from(array_merge($data, [
             'data' => is_null($data['data'])
                 ? []
-                : array_map(fn($touristicAttraction): TouristAttraction => TouristAttraction::from($touristicAttraction), $data['data']),
+                : array_map(fn ($touristicAttraction): TouristAttraction => TouristAttraction::from($touristicAttraction), $data['data']),
         ]));
 
         return $paginated;

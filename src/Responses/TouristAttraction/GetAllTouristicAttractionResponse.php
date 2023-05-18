@@ -2,7 +2,6 @@
 
 namespace FelipeVa\ApiColombia\Responses\TouristAttraction;
 
-use FelipeVa\ApiColombia\Objects\President;
 use FelipeVa\ApiColombia\Objects\TouristAttraction;
 use Saloon\Contracts\Response;
 
@@ -23,6 +22,6 @@ class GetAllTouristicAttractionResponse
             return [];
         }
 
-        return array_map(fn($touristAttraction): TouristAttraction => TouristAttraction::from($touristAttraction), $data);
+        return array_map(fn ($touristAttraction): TouristAttraction => TouristAttraction::from($touristAttraction), $data);
     }
 }

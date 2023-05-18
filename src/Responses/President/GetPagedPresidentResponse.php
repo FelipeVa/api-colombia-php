@@ -25,7 +25,7 @@ class GetPagedPresidentResponse
         $paginated = Paged::from(array_merge($data, [
             'data' => is_null($data['data'])
                 ? []
-                : array_map(fn($president): President => President::from($president), $data['data']),
+                : array_map(fn ($president): President => President::from($president), $data['data']),
         ]));
 
         return $paginated;
