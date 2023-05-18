@@ -1,6 +1,6 @@
 [Colombia Api](https://github.com/Mteheran/api-colombia) PHP SDK.
 
-> **Requires [PHP 8.1+](https://php.net/releases/)**
+> **Requires [PHP 8.2+](https://php.net/releases/)**
 
 
 🧹 Keep a modern codebase with **Pint**:
