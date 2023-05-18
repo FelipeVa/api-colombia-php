@@ -23,7 +23,18 @@ class GetPagedDepartmentRequest extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/Department/pagedList?Page=$this->page&PageSize=$this->pageSize";
+        return '/Department/pagedList';
+    }
+
+    /**
+     * @return array<string, int>
+     */
+    protected function defaultQuery(): array
+    {
+        return [
+            'Page' => $this->page,
+            'PageSize' => $this->pageSize,
+        ];
     }
 
     /**

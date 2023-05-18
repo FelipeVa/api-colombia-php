@@ -26,7 +26,7 @@ it('can\'t retrieve country information for wrong country', function () {
         GetCountryRequest::class => MockResponse::fixture('countries.get.wrong'),
     ]);
 
-    expect(fn () => $client->countries()->get('United States'))
+    expect(fn() => $client->countries()->get('United States'))
         ->toThrow(NotFoundException::class);
 });
 
@@ -209,3 +209,88 @@ it('can retrieve president information', function () {
     expect($response->dto())->toBeInstanceOf(President::class)
         ->and($response->status())->toBe(200);
 });
+
+it('can retrieve president by name', function () {
+    $client = mockClient();
+
+    $response = $client->presidents()->getByName('Alvaro');
+
+    expect($response->dto())->toBeArray()
+        ->and($response->dto())->toContainOnlyInstancesOf(President::class)
+        ->and($response->status())->toBe(200);
+});
+
+it('can retrieve president by search', function () {
+    $client = mockClient();
+
+    $response = $client->presidents()->search('Alvaro');
+
+    expect($response->dto())->toBeArray()
+        ->and($response->dto())->toContainOnlyInstancesOf(President::class)
+        ->and($response->status())->toBe(200);
+});
+
+it('can retrieve paged presidents', function () {
+    $client = mockClient();
+
+    $response = $client->presidents()->paged(
+        page: 1,
+        pageSize: 10
+    );
+
+    expect($response->dto())->toBeInstanceOf(Paged::class)
+        ->and($response->dto()->data)->toContainOnlyInstancesOf(President::class)
+        ->and($response->status())->toBe(200);
+});
+
+it('can retrieve all touristic attractions', function () {
+    $client = mockClient();
+    $response = $client->touristAttractions()->all();
+
+    expect($response->dto())->toBeArray()
+        ->and($response->dto())->toContainOnlyInstancesOf(TouristAttraction::class)
+        ->and($response->status())->toBe(200);
+});
+
+it('can retrieve touristic attraction information', function () {
+    $client = mockClient();
+
+    $response = $client->touristAttractions()->get(1);
+
+    expect($response->dto())->toBeInstanceOf(TouristAttraction::class)
+        ->and($response->status())->toBe(200);
+});
+
+it('can retrieve touristic attraction by name', function () {
+    $client = mockClient();
+
+    $response = $client->touristAttractions()->getByName('Hacienda napoles');
+
+    expect($response->dto())->toBeArray()
+        ->and($response->dto())->toContainOnlyInstancesOf(TouristAttraction::class)
+        ->and($response->status())->toBe(200);
+});
+
+it('can retrieve touristic attraction by search', function () {
+    $client = mockClient();
+
+    $response = $client->touristAttractions()->search('Hacienda napoles');
+
+    expect($response->dto())->toBeArray()
+        ->and($response->dto())->toContainOnlyInstancesOf(TouristAttraction::class)
+        ->and($response->status())->toBe(200);
+})->skip();
+
+it('can retrieve paged touristic attractions', function () {
+    $client = mockClient();
+
+    $response = $client->touristAttractions()->paged(
+        page: 1,
+        pageSize: 10
+    );
+
+    expect($response->dto())->toBeInstanceOf(Paged::class)
+        ->and($response->dto()->data)->toContainOnlyInstancesOf(TouristAttraction::class)
+        ->and($response->status())->toBe(200);
+})->skip();
+

@@ -1,16 +1,19 @@
 <?php
 
-namespace FelipeVa\ApiColombia\Requests\City;
+namespace FelipeVa\ApiColombia\Requests\TouristAttraction;
 
-use FelipeVa\ApiColombia\Objects\City;
 use FelipeVa\ApiColombia\Objects\Paged;
-use FelipeVa\ApiColombia\Responses\City\GetPagedCityResponse;
+use FelipeVa\ApiColombia\Objects\TouristAttraction;
+use FelipeVa\ApiColombia\Responses\TouristAttraction\GetPagedTouristicAttractionResponse;
 use Saloon\Contracts\Response;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Plugins\AlwaysThrowOnErrors;
 
-class GetPagedCityRequest extends Request
+/**
+ * TODO: throws 404 from api
+ */
+class GetPagedTouristicAttractionRequest extends Request
 {
     use AlwaysThrowOnErrors;
 
@@ -23,7 +26,7 @@ class GetPagedCityRequest extends Request
 
     public function resolveEndpoint(): string
     {
-        return '/City/pagedList';
+        return "/TouristicAttraction/pagedList";
     }
 
     /**
@@ -38,10 +41,10 @@ class GetPagedCityRequest extends Request
     }
 
     /**
-     * @return Paged<City>
+     * @return Paged<TouristAttraction>
      */
     public function createDtoFromResponse(Response $response): Paged
     {
-        return GetPagedCityResponse::make($response);
+        return GetPagedTouristicAttractionResponse::make($response);
     }
 }

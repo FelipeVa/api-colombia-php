@@ -1,31 +1,31 @@
 <?php
 
-namespace FelipeVa\ApiColombia\Requests\City;
+namespace FelipeVa\ApiColombia\Responses\President;
 
-use FelipeVa\ApiColombia\Objects\City;
 use FelipeVa\ApiColombia\Objects\Paged;
+use FelipeVa\ApiColombia\Objects\President;
 use Saloon\Contracts\Response;
 
 /**
  * @phpstan-import-type PagedData from Paged
  */
-class GetPagedCityResponse
+class GetPagedPresidentResponse
 {
     /**
      * TODO: fix workaround for phpstan
      *
-     * @return Paged<City>
+     * @return Paged<President>
      */
     public static function make(Response $response): Paged
     {
         /** @var PagedData $data */
         $data = $response->json();
 
-        /** @var Paged<City> $paginated */
+        /** @var Paged<President> $paginated */
         $paginated = Paged::from(array_merge($data, [
             'data' => is_null($data['data'])
                 ? []
-                : array_map(fn ($city): City => City::from($city), $data['data']),
+                : array_map(fn($president): President => President::from($president), $data['data']),
         ]));
 
         return $paginated;

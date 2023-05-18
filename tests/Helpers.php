@@ -16,10 +16,18 @@ use FelipeVa\ApiColombia\Requests\Department\GetDepartmentRequest;
 use FelipeVa\ApiColombia\Requests\Department\GetDepartmentTouristAttractionRequest;
 use FelipeVa\ApiColombia\Requests\Department\GetPagedDepartmentRequest;
 use FelipeVa\ApiColombia\Requests\President\GetAllPresidentRequest;
+use FelipeVa\ApiColombia\Requests\President\GetPagedPresidentRequest;
+use FelipeVa\ApiColombia\Requests\President\GetPresidentByNameRequest;
+use FelipeVa\ApiColombia\Requests\President\GetPresidentBySearchRequest;
 use FelipeVa\ApiColombia\Requests\President\GetPresidentRequest;
 use FelipeVa\ApiColombia\Requests\Region\GetAllRegionRequest;
 use FelipeVa\ApiColombia\Requests\Region\GetRegionDepartmentRequest;
 use FelipeVa\ApiColombia\Requests\Region\GetRegionRequest;
+use FelipeVa\ApiColombia\Requests\TouristAttraction\GetAllTouristicAttractionRequest;
+use FelipeVa\ApiColombia\Requests\TouristAttraction\GetPagedTouristicAttractionRequest;
+use FelipeVa\ApiColombia\Requests\TouristAttraction\GetTouristicAttractionByNameRequest;
+use FelipeVa\ApiColombia\Requests\TouristAttraction\GetTouristicAttractionBySearchRequest;
+use FelipeVa\ApiColombia\Requests\TouristAttraction\GetTouristicAttractionRequest;
 use Saloon\Exceptions\DirectoryNotFoundException;
 use Saloon\Exceptions\InvalidMockResponseCaptureMethodException;
 use Saloon\Http\Faking\Fixture;
@@ -27,7 +35,7 @@ use Saloon\Http\Faking\MockClient;
 use Saloon\Http\Faking\MockResponse;
 
 /**
- * @param  array<class-string, Fixture>  $mocks
+ * @param array<class-string, Fixture> $mocks
  *
  * @throws DirectoryNotFoundException
  * @throws InvalidMockResponseCaptureMethodException
@@ -55,6 +63,14 @@ function mockClient(array $mocks = []): ApiColombia
         GetPagedCityRequest::class => MockResponse::fixture('cities.get.paged'),
         GetAllPresidentRequest::class => MockResponse::fixture('presidents.get.all'),
         GetPresidentRequest::class => MockResponse::fixture('presidents.get.1'),
+        GetPresidentByNameRequest::class => MockResponse::fixture('presidents.get.by-name'),
+        GetPresidentBySearchRequest::class => MockResponse::fixture('presidents.get.by-search'),
+        GetPagedPresidentRequest::class => MockResponse::fixture('presidents.get.paged'),
+        GetAllTouristicAttractionRequest::class => MockResponse::fixture('touristicAttraction.get.all'),
+        GetTouristicAttractionRequest::class => MockResponse::fixture('touristicAttractions.get.1'),
+        GetTouristicAttractionByNameRequest::class => MockResponse::fixture('touristicAttractions.get.by-name'),
+        GetTouristicAttractionBySearchRequest::class => MockResponse::fixture('touristicAttractions.get.by-search'),
+        GetPagedTouristicAttractionRequest::class => MockResponse::fixture('touristicAttractions.get.paged')
     ], $mocks));
 
     $apiColombia->withMockClient($mockClient);

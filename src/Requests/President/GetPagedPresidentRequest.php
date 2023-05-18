@@ -1,16 +1,18 @@
 <?php
 
-namespace FelipeVa\ApiColombia\Requests\City;
+namespace FelipeVa\ApiColombia\Requests\President;
 
 use FelipeVa\ApiColombia\Objects\City;
 use FelipeVa\ApiColombia\Objects\Paged;
+use FelipeVa\ApiColombia\Objects\President;
 use FelipeVa\ApiColombia\Responses\City\GetPagedCityResponse;
+use FelipeVa\ApiColombia\Responses\President\GetPagedPresidentResponse;
 use Saloon\Contracts\Response;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Plugins\AlwaysThrowOnErrors;
 
-class GetPagedCityRequest extends Request
+class GetPagedPresidentRequest extends Request
 {
     use AlwaysThrowOnErrors;
 
@@ -23,7 +25,7 @@ class GetPagedCityRequest extends Request
 
     public function resolveEndpoint(): string
     {
-        return '/City/pagedList';
+        return "/President/pagedList";
     }
 
     /**
@@ -38,10 +40,10 @@ class GetPagedCityRequest extends Request
     }
 
     /**
-     * @return Paged<City>
+     * @return Paged<President>
      */
     public function createDtoFromResponse(Response $response): Paged
     {
-        return GetPagedCityResponse::make($response);
+        return GetPagedPresidentResponse::make($response);
     }
 }

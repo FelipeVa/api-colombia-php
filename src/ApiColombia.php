@@ -9,6 +9,7 @@ use FelipeVa\ApiColombia\Resources\CountryResource;
 use FelipeVa\ApiColombia\Resources\DepartmentResource;
 use FelipeVa\ApiColombia\Resources\PresidentResource;
 use FelipeVa\ApiColombia\Resources\RegionResource;
+use FelipeVa\ApiColombia\Resources\TouristAttractionResource;
 use Saloon\Http\Connector;
 
 class ApiColombia extends Connector
@@ -63,5 +64,10 @@ class ApiColombia extends Connector
     public function presidents(): PresidentResource
     {
         return new PresidentResource($this);
+    }
+
+    public function touristAttractions(): TouristAttractionResource
+    {
+       return new TouristAttractionResource($this);
     }
 }
