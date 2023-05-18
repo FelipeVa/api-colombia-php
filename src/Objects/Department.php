@@ -9,6 +9,7 @@ use Saloon\Traits\Responses\HasResponse;
 
 /**
  * TODO: typo in MapData departament
+ *
  * @phpstan-type MapData array{id: int, name: string|null, description: string|null, departamentId: int|null, urlImages: string[]|null, urlSource: string|null, departament: null}
  * @phpstan-type CityData array{id: int, name: string|null, description: string|null, surface: int|null, population: int|null, postalCode: string|null, departmentId: int, department: null, touristAttractions: null, presidents: null}
  * @phpstan-type CategoryNaturalAreaData array{id: int, name: string|null, description: string|null, naturalAreas: null}
