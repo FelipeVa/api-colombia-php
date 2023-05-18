@@ -2,6 +2,11 @@
 
 > **Requires [PHP 8.2+](https://php.net/releases/)**
 
+## Installation
+
+```bash
+composer require felipeva/api-colombia-php-sdk
+```
 
 🧹 Keep a modern codebase with **Pint**:
 ```bash
