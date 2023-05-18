@@ -3,7 +3,7 @@
 namespace FelipeVa\ApiColombia\Requests\Department;
 
 use FelipeVa\ApiColombia\Objects\City;
-use FelipeVa\ApiColombia\Responses\Department\GetDepartmentCityResponse;
+use FelipeVa\ApiColombia\Responses\City\GetAllCityResponse;
 use Saloon\Contracts\Response;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -30,6 +30,6 @@ class GetDepartmentCityRequest extends Request
      */
     public function createDtoFromResponse(Response $response): array
     {
-        return GetDepartmentCityResponse::make($response);
+        return GetAllCityResponse::make($response);
     }
 }

@@ -4,6 +4,7 @@ namespace FelipeVa\ApiColombia\Requests\City;
 
 use FelipeVa\ApiColombia\Objects\City;
 use FelipeVa\ApiColombia\Objects\Paged;
+use FelipeVa\ApiColombia\Responses\City\GetPagedCityResponse;
 use Saloon\Contracts\Response;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -22,7 +23,18 @@ class GetPagedCityRequest extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/City/pagedList?Page=$this->page&PageSize=$this->pageSize";
+        return '/City/pagedList';
+    }
+
+    /**
+     * @return array{Page: int, PageSize: int}
+     */
+    protected function defaultQuery(): array
+    {
+        return [
+            'Page' => $this->page,
+            'PageSize' => $this->pageSize,
+        ];
     }
 
     /**

@@ -7,7 +7,9 @@ use Saloon\Contracts\DataObjects\WithResponse;
 use Saloon\Traits\Responses\HasResponse;
 
 /**
- * @phpstan-type NaturalAreaData array{id: int, name: string, categoryNaturalAreaId: int, areaGroupId: int|null, departmentId: int|null, daneCode: int|null, department: array{id: int, name: string|null, description: string|null, cityCapitalId: int|null, municipalities: int|null, surface: int, population: int|null, phonePrefix: string|null, countryId: int, cityCapital: null, country: string|null, cities: null, regionId: int|null, region: string|null, naturalAreas: null, maps: string|null}|null, landArea: int|null, maritimeArea: int|null, categoryNaturalArea: string|null}
+ * @phpstan-type DepartmentData  array{id: int, name: string|null, description: string|null, cityCapitalId: int|null, municipalities: int|null, surface: int, population: int|null, phonePrefix: string|null, countryId: int, cityCapital: null, country: string|null, cities: null, regionId: int|null, region: string|null, naturalAreas: null, maps: null}
+ * @phpstan-type CategoryNaturalAreaData array{id: int, name: string|null, description: string|null, naturalAreas: null}
+ * @phpstan-type NaturalAreaData array{id: int, name: string, categoryNaturalAreaId: int, areaGroupId: int|null, departmentId: int|null, daneCode: int|null, department: DepartmentData|null, landArea: int|null, maritimeArea: int|null, categoryNaturalArea: CategoryNaturalAreaData|null}
  *
  * @implements DataTransferObject<NaturalAreaData>
  */
@@ -25,7 +27,7 @@ class NaturalArea implements DataTransferObject, WithResponse
         public ?int $daneCode = null,
         public ?float $landArea = null,
         public ?int $maritimeArea = null,
-        public ?string $categoryNaturalArea = null,
+        public ?CategoryNaturalArea $categoryNaturalArea = null,
     ) {
     }
 
@@ -33,6 +35,7 @@ class NaturalArea implements DataTransferObject, WithResponse
     {
         return new self(...array_merge($data, [
             'department' => is_null($data['department']) ? null : Department::from($data['department']),
+            'categoryNaturalArea' => is_null($data['categoryNaturalArea']) ? null : CategoryNaturalArea::from($data['categoryNaturalArea']),
         ]));
     }
 }
