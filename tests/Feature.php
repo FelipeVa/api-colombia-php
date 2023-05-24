@@ -77,7 +77,7 @@ it('can retrieve department information', function () {
 
     expect($response->dto())->toBeInstanceOf(Department::class)
         ->and($response->status())->toBe(200);
-})->skip();
+});
 
 it('can retrieve departments by name', function () {
     $client = mockClient();
@@ -294,7 +294,7 @@ it('can retrieve paged touristic attractions', function () {
     expect($response->dto())->toBeInstanceOf(Paged::class)
         ->and($response->dto()->data)->toContainOnlyInstancesOf(TouristAttraction::class)
         ->and($response->status())->toBe(200);
-})->skip();
+});
 
 it('can retrieve all category natural areas', function () {
     $client = mockClient();

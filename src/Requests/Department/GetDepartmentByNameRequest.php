@@ -9,9 +9,6 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Plugins\AlwaysThrowOnErrors;
 
-/*
- * @TODO: review endpoint, is currently throwing a 404
- */
 class GetDepartmentByNameRequest extends Request
 {
     use AlwaysThrowOnErrors;
