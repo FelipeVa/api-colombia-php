@@ -281,7 +281,7 @@ it('can retrieve touristic attraction by search', function () {
     expect($response->dto())->toBeArray()
         ->and($response->dto())->toContainOnlyInstancesOf(TouristAttraction::class)
         ->and($response->status())->toBe(200);
-})->skip();
+});
 
 it('can retrieve paged touristic attractions', function () {
     $client = mockClient();
