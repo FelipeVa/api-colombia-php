@@ -1,7 +1,7 @@
 {
-    "name": "felipeva/api-colombia-php-sdk",
-    "description": "The Api Colombia PHP SDK.",
-    "keywords": ["php", "api-colombia", "sdk"],
+    "name": "felipeva/api-colombia-php",
+    "description": "The Api Colombia PHP Client.",
+    "keywords": ["php", "api-colombia", "client", "api-colombia-php", "colombia-php-client"],
     "license": "MIT",
     "authors": [
         {
