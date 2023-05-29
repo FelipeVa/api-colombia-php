@@ -27,7 +27,6 @@ final class GetRegionDepartmentRequest extends Request
     }
 
     /**
-     * @param Response $response
      * @return Listed<Department>
      */
     public function createDtoFromResponse(Response $response): Listed

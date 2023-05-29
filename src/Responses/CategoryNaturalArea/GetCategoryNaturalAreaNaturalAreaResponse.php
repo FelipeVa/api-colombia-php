@@ -13,7 +13,6 @@ use Saloon\Contracts\Response;
 final class GetCategoryNaturalAreaNaturalAreaResponse
 {
     /**
-     * @param Response $response
      * @return Listed<NaturalArea>
      */
     public static function make(Response $response): Listed
