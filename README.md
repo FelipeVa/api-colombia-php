@@ -12,7 +12,7 @@ foreach ($departments as $department) {
 ```
 ---
 
-***Api Colombia PHP*** is a PHP API client that lets you easily interact with the [Api Colombia](https://api-colombia.com).
+***Api Colombia PHP*** is a PHP API client that lets you easily interact with the [Api Colombia](https://github.com/Mteheran/api-colombia).
 
 ## Table of Contents
 - [Getting started](#getting-started)
