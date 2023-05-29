@@ -2,6 +2,7 @@
 
 namespace FelipeVa\ApiColombia\Requests\NaturalArea;
 
+use FelipeVa\ApiColombia\Objects\Listed;
 use FelipeVa\ApiColombia\Objects\NaturalArea;
 use FelipeVa\ApiColombia\Responses\NaturalArea\GetAllNaturalAreaResponse;
 use Saloon\Contracts\Response;
@@ -21,9 +22,9 @@ class GetAllNaturalAreaRequest extends Request
     }
 
     /**
-     * @return array<int, NaturalArea>
+     * @return Listed<NaturalArea>
      */
-    public function createDtoFromResponse(Response $response): array
+    public function createDtoFromResponse(Response $response): Listed
     {
         return GetAllNaturalAreaResponse::make($response);
     }

@@ -3,6 +3,7 @@
 namespace FelipeVa\ApiColombia\Responses\Map;
 
 use FelipeVa\ApiColombia\Objects\City;
+use FelipeVa\ApiColombia\Objects\Listed;
 use FelipeVa\ApiColombia\Objects\Map;
 use Saloon\Contracts\Response;
 
@@ -13,17 +14,17 @@ use Saloon\Contracts\Response;
 class GetAllMapResponse
 {
     /**
-     * @return array<int, Map>
+     * @return Listed<Map>
      */
-    public static function make(Response $response): array
+    public static function make(Response $response): Listed
     {
-        /** @var MapData[] $data */
-        $data = $response->json();
+        /** @var MapData[] $json */
+        $json = $response->json();
 
-        if ($data === []) {
-            return [];
-        }
+        $data = Listed::from([
+            'data' => array_map(fn ($map): Map => Map::from($map), $json),
+        ]);
 
-        return array_map(fn ($map): Map => Map::from($map), $data);
+        return $data;
     }
 }

@@ -2,6 +2,7 @@
 
 namespace FelipeVa\ApiColombia\Requests\President;
 
+use FelipeVa\ApiColombia\Objects\Listed;
 use FelipeVa\ApiColombia\Objects\President;
 use FelipeVa\ApiColombia\Responses\President\GetAllPresidentResponse;
 use Saloon\Contracts\Response;
@@ -26,9 +27,9 @@ class GetPresidentBySearchRequest extends Request
     }
 
     /**
-     * @return array<int, President>
+     * @return Listed<President>
      */
-    public function createDtoFromResponse(Response $response): array
+    public function createDtoFromResponse(Response $response): Listed
     {
         return GetAllPresidentResponse::make($response);
     }

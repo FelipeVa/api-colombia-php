@@ -3,6 +3,8 @@
 namespace FelipeVa\ApiColombia\Objects;
 
 use FelipeVa\ApiColombia\Contracts\DataTransferObject;
+use Saloon\Contracts\DataObjects\WithResponse;
+use Saloon\Traits\Responses\HasResponse;
 
 /**
  * @phpstan-type CityData array{id: int, name: string|null, description: string|null, surface: int|null, population: int|null, postalCode: string|null, departmentId: int, department: null, touristAttractions: null, presidents: null}
@@ -10,8 +12,10 @@ use FelipeVa\ApiColombia\Contracts\DataTransferObject;
  *
  * @implements DataTransferObject<PresidentData>
  */
-class President implements DataTransferObject
+class President implements DataTransferObject, WithResponse
 {
+    use HasResponse;
+
     public function __construct(
         public int $id,
         public string $name,

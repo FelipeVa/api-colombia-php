@@ -2,6 +2,7 @@
 
 namespace FelipeVa\ApiColombia\Responses\TouristAttraction;
 
+use FelipeVa\ApiColombia\Objects\Listed;
 use FelipeVa\ApiColombia\Objects\TouristAttraction;
 use Saloon\Contracts\Response;
 
@@ -11,17 +12,18 @@ use Saloon\Contracts\Response;
 class GetAllTouristicAttractionResponse
 {
     /**
-     * @return array<int, TouristAttraction>
+     * @return Listed<TouristAttraction>
      */
-    public static function make(Response $response): array
+    public static function make(Response $response): Listed
     {
-        /** @var array<int, TouristAttractionData> $data */
-        $data = $response->json();
+        /** @var array<int, TouristAttractionData> $json */
+        $json = $response->json();
 
-        if ($data === []) {
-            return [];
-        }
+        /** @var Listed<TouristAttraction> $data */
+        $data = Listed::from([
+            'data' => array_map(fn ($touristAttraction): TouristAttraction => TouristAttraction::from($touristAttraction), $json),
+        ]);
 
-        return array_map(fn ($touristAttraction): TouristAttraction => TouristAttraction::from($touristAttraction), $data);
+        return $data;
     }
 }

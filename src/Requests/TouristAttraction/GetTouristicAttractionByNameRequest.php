@@ -2,6 +2,7 @@
 
 namespace FelipeVa\ApiColombia\Requests\TouristAttraction;
 
+use FelipeVa\ApiColombia\Objects\Listed;
 use FelipeVa\ApiColombia\Objects\TouristAttraction;
 use FelipeVa\ApiColombia\Responses\TouristAttraction\GetAllTouristicAttractionResponse;
 use Saloon\Contracts\Response;
@@ -25,9 +26,9 @@ class GetTouristicAttractionByNameRequest extends Request
     }
 
     /**
-     * @return array<int, TouristAttraction>
+     * @return Listed<TouristAttraction>
      */
-    public function createDtoFromResponse(Response $response): array
+    public function createDtoFromResponse(Response $response): Listed
     {
         return GetAllTouristicAttractionResponse::make($response);
     }

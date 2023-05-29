@@ -2,6 +2,7 @@
 
 namespace FelipeVa\ApiColombia\Requests\Map;
 
+use FelipeVa\ApiColombia\Objects\Listed;
 use FelipeVa\ApiColombia\Objects\Map;
 use FelipeVa\ApiColombia\Responses\Map\GetAllMapResponse;
 use Saloon\Contracts\Response;
@@ -21,9 +22,9 @@ class GetAllMapRequest extends Request
     }
 
     /**
-     * @return array<int, Map>
+     * @return Listed<Map>
      */
-    public function createDtoFromResponse(Response $response): array
+    public function createDtoFromResponse(Response $response): Listed
     {
         return GetAllMapResponse::make($response);
     }

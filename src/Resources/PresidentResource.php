@@ -3,13 +3,13 @@
 namespace FelipeVa\ApiColombia\Resources;
 
 use FelipeVa\ApiColombia\Objects\Listed;
+use FelipeVa\ApiColombia\Objects\Paged;
 use FelipeVa\ApiColombia\Objects\President;
 use FelipeVa\ApiColombia\Requests\President\GetAllPresidentRequest;
 use FelipeVa\ApiColombia\Requests\President\GetPagedPresidentRequest;
 use FelipeVa\ApiColombia\Requests\President\GetPresidentByNameRequest;
 use FelipeVa\ApiColombia\Requests\President\GetPresidentBySearchRequest;
 use FelipeVa\ApiColombia\Requests\President\GetPresidentRequest;
-use Saloon\Contracts\Response;
 
 class PresidentResource extends Resource
 {
@@ -21,23 +21,40 @@ class PresidentResource extends Resource
         return $this->connector->send(new GetAllPresidentRequest())->dto();
     }
 
-    public function get(int $presidentId): Response
+    /**
+     * @param int $presidentId
+     * @return mixed|President
+     */
+    public function get(int $presidentId): mixed
     {
-        return $this->connector->send(new GetPresidentRequest($presidentId));
+        return $this->connector->send(new GetPresidentRequest($presidentId))->dto();
     }
 
-    public function getByName(string $presidentName): Response
+    /**
+     * @param string $presidentName
+     * @return mixed|Listed<President>
+     */
+    public function getByName(string $presidentName): mixed
     {
-        return $this->connector->send(new GetPresidentByNameRequest($presidentName));
+        return $this->connector->send(new GetPresidentByNameRequest($presidentName))->dto();
     }
 
-    public function search(string $searchValue): Response
+    /**
+     * @param string $searchValue
+     * @return mixed|Listed<President>
+     */
+    public function search(string $searchValue): mixed
     {
-        return $this->connector->send(new GetPresidentBySearchRequest($searchValue));
+        return $this->connector->send(new GetPresidentBySearchRequest($searchValue))->dto();
     }
 
-    public function paged(int $page, int $pageSize): Response
+    /**
+     * @param int $page
+     * @param int $pageSize
+     * @return mixed|Paged<President>
+     */
+    public function paged(int $page, int $pageSize): mixed
     {
-        return $this->connector->send(new GetPagedPresidentRequest($page, $pageSize));
+        return $this->connector->send(new GetPagedPresidentRequest($page, $pageSize))->dto();
     }
 }

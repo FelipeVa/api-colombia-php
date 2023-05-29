@@ -21,7 +21,7 @@ class Listed implements DataTransferObject, WithResponse
      * @param T[] $data
      */
     public function __construct(
-        public array $data,
+        public array $data = [],
     ) {
     }
 
