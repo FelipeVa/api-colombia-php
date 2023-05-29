@@ -1,6 +1,7 @@
 <?php
 
 use FelipeVa\ApiColombia\ApiColombia;
+use FelipeVa\ApiColombia\Factory;
 use FelipeVa\ApiColombia\Requests\CategoryNaturalArea\GetAllCategoryNaturalAreaRequest;
 use FelipeVa\ApiColombia\Requests\CategoryNaturalArea\GetCategoryNaturalAreaAllNaturalAreaRequest;
 use FelipeVa\ApiColombia\Requests\CategoryNaturalArea\GetCategoryNaturalAreaRequest;
@@ -50,9 +51,9 @@ use Saloon\Http\Faking\MockResponse;
  * @throws DirectoryNotFoundException
  * @throws InvalidMockResponseCaptureMethodException
  */
-function mockClient(array $mocks = []): ApiColombia
+function mockClient(array $mocks = []): Factory
 {
-    $apiColombia = new ApiColombia();
+    $apiColombia = ApiColombia::client();
     $mockClient = new MockClient(array_merge([
         GetCountryRequest::class => MockResponse::fixture('countries.get.colombia'),
         GetAllRegionRequest::class => MockResponse::fixture('regions.get.all'),
