@@ -4,6 +4,7 @@ namespace FelipeVa\ApiColombia\Resources;
 
 use FelipeVa\ApiColombia\Objects\CategoryNaturalArea;
 use FelipeVa\ApiColombia\Objects\Listed;
+use FelipeVa\ApiColombia\Objects\NaturalArea;
 use FelipeVa\ApiColombia\Requests\CategoryNaturalArea\GetAllCategoryNaturalAreaRequest;
 use FelipeVa\ApiColombia\Requests\CategoryNaturalArea\GetCategoryNaturalAreaAllNaturalAreaRequest;
 use FelipeVa\ApiColombia\Requests\CategoryNaturalArea\GetCategoryNaturalAreaRequest;
@@ -27,7 +28,7 @@ final class CategoryNaturalAreaResource extends Resource
     }
 
     /**
-     * @return mixed|CategoryNaturalArea
+     * @return mixed|Listed<NaturalArea>
      */
     public function naturalAreas(int $categoryNaturalAreaId): mixed
     {

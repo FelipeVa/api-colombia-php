@@ -57,9 +57,9 @@ it('can retrieve region departments', function () {
 
     $response = $client->regions()->departments(1);
 
-    expect($response->departments)->toBeArray()
-        ->and($response->departments)->toContainOnlyInstancesOf(Department::class)
-        ->and($response)->toBeInstanceOf(Region::class)
+    expect($response->data)->toBeArray()
+        ->and($response)->toBeInstanceOf(Listed::class)
+        ->and($response->data)->toContainOnlyInstancesOf(Department::class)
         ->and($response->getResponse()->status())->toBe(200);
 });
 
@@ -337,7 +337,9 @@ it('can retrieve category natural area all natural areas', function () {
 
     $response = $client->categoryNaturalAreas()->naturalAreas(1);
 
-    expect($response)->toBeInstanceOf(CategoryNaturalArea::class)
+    expect($response->data)->toBeArray()
+        ->and($response)->toBeInstanceOf(Listed::class)
+        ->and($response->data)->toContainOnlyInstancesOf(NaturalArea::class)
         ->and($response->getResponse()->status())->toBe(200);
 });
 

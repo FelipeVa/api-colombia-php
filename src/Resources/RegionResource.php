@@ -2,6 +2,7 @@
 
 namespace FelipeVa\ApiColombia\Resources;
 
+use FelipeVa\ApiColombia\Objects\Department;
 use FelipeVa\ApiColombia\Objects\Listed;
 use FelipeVa\ApiColombia\Objects\Region;
 use FelipeVa\ApiColombia\Requests\Region\GetAllRegionRequest;
@@ -27,7 +28,7 @@ final class RegionResource extends Resource
     }
 
     /**
-     * @return mixed|Region
+     * @return mixed|Listed<Department>
      */
     public function departments(int $regionId): mixed
     {

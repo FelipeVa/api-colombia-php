@@ -3,6 +3,7 @@
 namespace FelipeVa\ApiColombia\Responses\Region;
 
 use FelipeVa\ApiColombia\Objects\Department;
+use FelipeVa\ApiColombia\Objects\Listed;
 use FelipeVa\ApiColombia\Objects\Region;
 use Saloon\Contracts\Response;
 
@@ -12,17 +13,19 @@ use Saloon\Contracts\Response;
 final class GetRegionDepartmentResponse
 {
     /**
-     * @return array<int, Department>
+     * @return Listed<Department>
      */
-    public static function make(Response $response): array
+    public static function make(Response $response): Listed
     {
-        /** @var RegionData $data */
-        $data = $response->json();
+        /** @var RegionData $json */
+        $json = $response->json();
+        $departments = $json['departments'] ?? [];
 
-        if (is_null($data['departments'])) {
-            return [];
-        }
+        /** @var Listed<Department> $data */
+        $data = Listed::from([
+            'data' => array_map(fn ($department): Department => Department::from($department), $departments),
+        ]);
 
-        return array_map(fn ($department): Department => Department::from($department), $data['departments']);
+        return $data;
     }
 }

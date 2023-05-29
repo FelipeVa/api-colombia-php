@@ -3,6 +3,9 @@
 namespace FelipeVa\ApiColombia\Requests\CategoryNaturalArea;
 
 use FelipeVa\ApiColombia\Objects\CategoryNaturalArea;
+use FelipeVa\ApiColombia\Objects\Listed;
+use FelipeVa\ApiColombia\Objects\NaturalArea;
+use FelipeVa\ApiColombia\Responses\CategoryNaturalArea\GetCategoryNaturalAreaNaturalAreaResponse;
 use FelipeVa\ApiColombia\Responses\CategoryNaturalArea\GetCategoryNaturalAreaResponse;
 use Saloon\Contracts\Response;
 use Saloon\Enums\Method;
@@ -25,8 +28,12 @@ final class GetCategoryNaturalAreaAllNaturalAreaRequest extends Request
         return "/CategoryNaturalArea/$this->categoryNaturalAreaId/NaturalAreas";
     }
 
-    public function createDtoFromResponse(Response $response): CategoryNaturalArea
+    /**
+     * @param Response $response
+     * @return Listed<NaturalArea>
+     */
+    public function createDtoFromResponse(Response $response): Listed
     {
-        return GetCategoryNaturalAreaResponse::make($response);
+        return GetCategoryNaturalAreaNaturalAreaResponse::make($response);
     }
 }
