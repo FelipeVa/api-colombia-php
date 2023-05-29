@@ -3,7 +3,9 @@
 namespace FelipeVa\ApiColombia\Requests\Region;
 
 use FelipeVa\ApiColombia\Objects\Department;
+use FelipeVa\ApiColombia\Objects\Region;
 use FelipeVa\ApiColombia\Responses\Region\GetRegionDepartmentResponse;
+use FelipeVa\ApiColombia\Responses\Region\GetRegionResponse;
 use Saloon\Contracts\Response;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -26,10 +28,10 @@ class GetRegionDepartmentRequest extends Request
     }
 
     /**
-     * @return array<int, Department>
+     * @return Region
      */
-    public function createDtoFromResponse(Response $response): array
+    public function createDtoFromResponse(Response $response): Region
     {
-        return GetRegionDepartmentResponse::make($response);
+        return GetRegionResponse::make($response);
     }
 }

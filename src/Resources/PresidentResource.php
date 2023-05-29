@@ -2,6 +2,8 @@
 
 namespace FelipeVa\ApiColombia\Resources;
 
+use FelipeVa\ApiColombia\Objects\Listed;
+use FelipeVa\ApiColombia\Objects\President;
 use FelipeVa\ApiColombia\Requests\President\GetAllPresidentRequest;
 use FelipeVa\ApiColombia\Requests\President\GetPagedPresidentRequest;
 use FelipeVa\ApiColombia\Requests\President\GetPresidentByNameRequest;
@@ -11,9 +13,12 @@ use Saloon\Contracts\Response;
 
 class PresidentResource extends Resource
 {
-    public function all(): Response
+    /**
+     * @return mixed|Listed<President>
+     */
+    public function all(): mixed
     {
-        return $this->connector->send(new GetAllPresidentRequest());
+        return $this->connector->send(new GetAllPresidentRequest())->dto();
     }
 
     public function get(int $presidentId): Response

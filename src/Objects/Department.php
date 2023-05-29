@@ -27,7 +27,7 @@ class Department implements DataTransferObject, WithResponse
      */
     public function __construct(
         public int $id,
-        public int $surface,
+        public ?int $surface,
         public int $countryId,
         public ?int $regionId = null,
         public ?string $name = null,

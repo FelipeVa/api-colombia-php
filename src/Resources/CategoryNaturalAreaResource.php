@@ -2,25 +2,37 @@
 
 namespace FelipeVa\ApiColombia\Resources;
 
+use FelipeVa\ApiColombia\Objects\CategoryNaturalArea;
+use FelipeVa\ApiColombia\Objects\Listed;
 use FelipeVa\ApiColombia\Requests\CategoryNaturalArea\GetAllCategoryNaturalAreaRequest;
 use FelipeVa\ApiColombia\Requests\CategoryNaturalArea\GetCategoryNaturalAreaAllNaturalAreaRequest;
 use FelipeVa\ApiColombia\Requests\CategoryNaturalArea\GetCategoryNaturalAreaRequest;
-use Saloon\Contracts\Response;
 
 class CategoryNaturalAreaResource extends Resource
 {
-    public function all(): Response
+    /**
+     * @return mixed|Listed<CategoryNaturalArea>
+     */
+    public function all(): mixed
     {
-        return $this->connector->send(new GetAllCategoryNaturalAreaRequest());
+        return $this->connector->send(new GetAllCategoryNaturalAreaRequest())->dto();
     }
 
-    public function get(int $categoryNaturalAreaId): Response
+    /**
+     * @param int $categoryNaturalAreaId
+     * @return mixed|CategoryNaturalArea
+     */
+    public function get(int $categoryNaturalAreaId): mixed
     {
-        return $this->connector->send(new GetCategoryNaturalAreaRequest($categoryNaturalAreaId));
+        return $this->connector->send(new GetCategoryNaturalAreaRequest($categoryNaturalAreaId))->dto();
     }
 
-    public function naturalAreas(int $categoryNaturalAreaId): Response
+    /**
+     * @param int $categoryNaturalAreaId
+     * @return mixed|CategoryNaturalArea
+     */
+    public function naturalAreas(int $categoryNaturalAreaId): mixed
     {
-        return $this->connector->send(new GetCategoryNaturalAreaAllNaturalAreaRequest($categoryNaturalAreaId));
+        return $this->connector->send(new GetCategoryNaturalAreaAllNaturalAreaRequest($categoryNaturalAreaId))->dto();
     }
 }

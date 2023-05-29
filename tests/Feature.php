@@ -4,6 +4,7 @@ use FelipeVa\ApiColombia\Objects\CategoryNaturalArea;
 use FelipeVa\ApiColombia\Objects\City;
 use FelipeVa\ApiColombia\Objects\Country;
 use FelipeVa\ApiColombia\Objects\Department;
+use FelipeVa\ApiColombia\Objects\Listed;
 use FelipeVa\ApiColombia\Objects\Map;
 use FelipeVa\ApiColombia\Objects\NaturalArea;
 use FelipeVa\ApiColombia\Objects\Paged;
@@ -19,8 +20,8 @@ it('can retrieve country information', function () {
 
     $response = $client->countries()->get('Colombia');
 
-    expect($response->status())->toBe(200)
-        ->and($response->dto())->toBeInstanceOf(Country::class);
+    expect($response->getResponse()->status())->toBe(200)
+        ->and($response)->toBeInstanceOf(Country::class);
 });
 
 it('can\'t retrieve country information for wrong country', function () {
@@ -36,9 +37,10 @@ it('can retrieve all regions', function () {
     $client = mockClient();
     $response = $client->regions()->all();
 
-    expect($response->dto())->toBeArray()
-        ->and($response->dto())->toContainOnlyInstancesOf(Region::class)
-        ->and($response->status())->toBe(200);
+    expect($response->data)->toBeArray()
+        ->and($response)->toBeInstanceOf(Listed::class)
+        ->and($response->data)->toContainOnlyInstancesOf(Region::class)
+        ->and($response->getResponse()->status())->toBe(200);
 });
 
 it('can retrieve region information', function () {
@@ -46,8 +48,8 @@ it('can retrieve region information', function () {
 
     $response = $client->regions()->get(1);
 
-    expect($response->dto())->toBeInstanceOf(Region::class)
-        ->and($response->status())->toBe(200);
+    expect($response)->toBeInstanceOf(Region::class)
+        ->and($response->getResponse()->status())->toBe(200);
 });
 
 it('can retrieve region departments', function () {
@@ -55,9 +57,10 @@ it('can retrieve region departments', function () {
 
     $response = $client->regions()->departments(1);
 
-    expect($response->dto())->toBeArray()
-        ->and($response->dto())->toContainOnlyInstancesOf(Department::class)
-        ->and($response->status())->toBe(200);
+    expect($response->departments)->toBeArray()
+        ->and($response->departments)->toContainOnlyInstancesOf(Department::class)
+        ->and($response)->toBeInstanceOf(Region::class)
+        ->and($response->getResponse()->status())->toBe(200);
 });
 
 it('can retrieve all departments', function () {
@@ -65,9 +68,10 @@ it('can retrieve all departments', function () {
 
     $response = $client->departments()->all();
 
-    expect($response->dto())->toBeArray()
-        ->and($response->dto())->toContainOnlyInstancesOf(Department::class)
-        ->and($response->status())->toBe(200);
+    expect($response->data)->toBeArray()
+        ->and($response)->toBeInstanceOf(Listed::class)
+        ->and($response->data)->toContainOnlyInstancesOf(Department::class)
+        ->and($response->getResponse()->status())->toBe(200);
 });
 
 it('can retrieve department information', function () {
@@ -75,8 +79,8 @@ it('can retrieve department information', function () {
 
     $response = $client->departments()->get(1);
 
-    expect($response->dto())->toBeInstanceOf(Department::class)
-        ->and($response->status())->toBe(200);
+    expect($response)->toBeInstanceOf(Department::class)
+        ->and($response->getResponse()->status())->toBe(200);
 });
 
 it('can retrieve departments by name', function () {
@@ -84,9 +88,10 @@ it('can retrieve departments by name', function () {
 
     $response = $client->departments()->getByName('Cundinamarca');
 
-    expect($response->dto())->toBeArray()
-        ->and($response->dto())->toContainOnlyInstancesOf(Department::class)
-        ->and($response->status())->toBe(200);
+    expect($response->data)->toBeArray()
+        ->and($response)->toBeInstanceOf(Listed::class)
+        ->and($response->data)->toContainOnlyInstancesOf(Department::class)
+        ->and($response->getResponse()->status())->toBe(200);
 });
 
 it('can retrieve departments by search', function () {
@@ -94,9 +99,10 @@ it('can retrieve departments by search', function () {
 
     $response = $client->departments()->search('Cundinamarca');
 
-    expect($response->dto())->toBeArray()
-        ->and($response->dto())->toContainOnlyInstancesOf(Department::class)
-        ->and($response->status())->toBe(200);
+    expect($response->data)->toBeArray()
+        ->and($response)->toBeInstanceOf(Listed::class)
+        ->and($response->data)->toContainOnlyInstancesOf(Department::class)
+        ->and($response->getResponse()->status())->toBe(200);
 });
 
 it('can retrieve paged departments', function () {
@@ -107,9 +113,9 @@ it('can retrieve paged departments', function () {
         pageSize: 10
     );
 
-    expect($response->dto())->toBeInstanceOf(Paged::class)
-        ->and($response->dto()->data)->toContainOnlyInstancesOf(Department::class)
-        ->and($response->status())->toBe(200);
+    expect($response)->toBeInstanceOf(Paged::class)
+        ->and($response->data)->toContainOnlyInstancesOf(Department::class)
+        ->and($response->getResponse()->status())->toBe(200);
 });
 
 it('can retrieve department cities', function () {
@@ -117,9 +123,10 @@ it('can retrieve department cities', function () {
 
     $response = $client->departments()->cities(1);
 
-    expect($response->dto())->toBeArray()
-        ->and($response->dto())->toContainOnlyInstancesOf(City::class)
-        ->and($response->status())->toBe(200);
+    expect($response->data)->toBeArray()
+        ->and($response)->toBeInstanceOf(Listed::class)
+        ->and($response->data)->toContainOnlyInstancesOf(City::class)
+        ->and($response->getResponse()->status())->toBe(200);
 });
 
 it('can retrieve department natual areas', function () {
@@ -127,9 +134,10 @@ it('can retrieve department natual areas', function () {
 
     $response = $client->departments()->naturalAreas(1);
 
-    expect($response->dto())->toBeArray()
-        ->and($response->dto())->toContainOnlyInstancesOf(NaturalArea::class)
-        ->and($response->status())->toBe(200);
+    expect($response->data)->toBeArray()
+        ->and($response)->toBeInstanceOf(Listed::class)
+        ->and($response->data)->toContainOnlyInstancesOf(NaturalArea::class)
+        ->and($response->getResponse()->status())->toBe(200);
 });
 
 it('can retrieve department tourist attraction', function () {
@@ -137,9 +145,10 @@ it('can retrieve department tourist attraction', function () {
 
     $response = $client->departments()->touristAttractions(2);
 
-    expect($response->dto())->toBeArray()
-        ->and($response->dto())->toContainOnlyInstancesOf(TouristAttraction::class)
-        ->and($response->status())->toBe(200);
+    expect($response->data)->toBeArray()
+        ->and($response)->toBeInstanceOf(Listed::class)
+        ->and($response->data)->toContainOnlyInstancesOf(TouristAttraction::class)
+        ->and($response->getResponse()->status())->toBe(200);
 });
 
 it('can retrieve all cities', function () {
@@ -147,9 +156,10 @@ it('can retrieve all cities', function () {
 
     $response = $client->cities()->all();
 
-    expect($response->dto())->toBeArray()
-        ->and($response->dto())->toContainOnlyInstancesOf(City::class)
-        ->and($response->status())->toBe(200);
+    expect($response->data)->toBeArray()
+        ->and($response)->toBeInstanceOf(Listed::class)
+        ->and($response->data)->toContainOnlyInstancesOf(City::class)
+        ->and($response->getResponse()->status())->toBe(200);
 });
 
 it('can retrieve city information', function () {
@@ -157,8 +167,8 @@ it('can retrieve city information', function () {
 
     $response = $client->cities()->get(1);
 
-    expect($response->dto())->toBeInstanceOf(City::class)
-        ->and($response->status())->toBe(200);
+    expect($response)->toBeInstanceOf(City::class)
+        ->and($response->getResponse()->status())->toBe(200);
 });
 
 it('can retrieve cities by name', function () {
@@ -166,9 +176,10 @@ it('can retrieve cities by name', function () {
 
     $response = $client->cities()->getByName('Cali');
 
-    expect($response->dto())->toBeArray()
-        ->and($response->dto())->toContainOnlyInstancesOf(City::class)
-        ->and($response->status())->toBe(200);
+    expect($response->data)->toBeArray()
+        ->and($response)->toBeInstanceOf(Listed::class)
+        ->and($response->data)->toContainOnlyInstancesOf(City::class)
+        ->and($response->getResponse()->status())->toBe(200);
 });
 
 it('can retrieve cities by search', function () {
@@ -176,9 +187,10 @@ it('can retrieve cities by search', function () {
 
     $response = $client->cities()->search('Cali');
 
-    expect($response->dto())->toBeArray()
-        ->and($response->dto())->toContainOnlyInstancesOf(City::class)
-        ->and($response->status())->toBe(200);
+    expect($response->data)->toBeArray()
+        ->and($response)->toBeInstanceOf(Listed::class)
+        ->and($response->data)->toContainOnlyInstancesOf(City::class)
+        ->and($response->getResponse()->status())->toBe(200);
 });
 
 it('can retrieve paged cities', function () {
@@ -189,18 +201,19 @@ it('can retrieve paged cities', function () {
         pageSize: 10
     );
 
-    expect($response->dto())->toBeInstanceOf(Paged::class)
-        ->and($response->dto()->data)->toContainOnlyInstancesOf(City::class)
-        ->and($response->status())->toBe(200);
+    expect($response)->toBeInstanceOf(Paged::class)
+        ->and($response->data)->toContainOnlyInstancesOf(City::class)
+        ->and($response->getResponse()->status())->toBe(200);
 });
 
 it('can retrieve all presidents', function () {
     $client = mockClient();
     $response = $client->presidents()->all();
 
-    expect($response->dto())->toBeArray()
-        ->and($response->dto())->toContainOnlyInstancesOf(President::class)
-        ->and($response->status())->toBe(200);
+    expect($response->data)->toBeArray()
+        ->and($response)->toBeInstanceOf(Listed::class)
+        ->and($response->data)->toContainOnlyInstancesOf(President::class)
+        ->and($response->getResponse()->status())->toBe(200);
 });
 
 it('can retrieve president information', function () {
@@ -300,9 +313,9 @@ it('can retrieve all category natural areas', function () {
     $client = mockClient();
     $response = $client->categoryNaturalAreas()->all();
 
-    expect($response->dto())->toBeArray()
-        ->and($response->dto())->toContainOnlyInstancesOf(CategoryNaturalArea::class)
-        ->and($response->status())->toBe(200);
+    expect($response->data)->toBeArray()
+        ->and($response->data)->toContainOnlyInstancesOf(CategoryNaturalArea::class)
+        ->and($response->getResponse()->status())->toBe(200);
 });
 
 it('can retrieve category natural area information', function () {
@@ -310,8 +323,8 @@ it('can retrieve category natural area information', function () {
 
     $response = $client->categoryNaturalAreas()->get(1);
 
-    expect($response->dto())->toBeInstanceOf(CategoryNaturalArea::class)
-        ->and($response->status())->toBe(200);
+    expect($response)->toBeInstanceOf(CategoryNaturalArea::class)
+        ->and($response->getResponse()->status())->toBe(200);
 });
 
 it('can retrieve category natural area all natural areas', function () {
