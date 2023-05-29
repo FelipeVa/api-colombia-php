@@ -3,13 +3,14 @@
 namespace FelipeVa\ApiColombia\Requests\City;
 
 use FelipeVa\ApiColombia\Objects\City;
+use FelipeVa\ApiColombia\Objects\Listed;
 use FelipeVa\ApiColombia\Responses\City\GetAllCityResponse;
 use Saloon\Contracts\Response;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Plugins\AlwaysThrowOnErrors;
 
-class GetAllCityRequest extends Request
+final class GetAllCityRequest extends Request
 {
     use AlwaysThrowOnErrors;
 
@@ -21,9 +22,9 @@ class GetAllCityRequest extends Request
     }
 
     /**
-     * @return array<int, City>
+     * @return Listed<City>
      */
-    public function createDtoFromResponse(Response $response): array
+    public function createDtoFromResponse(Response $response): Listed
     {
         return GetAllCityResponse::make($response);
     }

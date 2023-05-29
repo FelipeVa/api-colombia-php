@@ -14,7 +14,7 @@ use Saloon\Traits\Responses\HasResponse;
  *
  * @implements DataTransferObject<CategoryNaturalAreaData>
  */
-class CategoryNaturalArea implements DataTransferObject, WithResponse
+final class CategoryNaturalArea implements DataTransferObject, WithResponse
 {
     use HasResponse;
 
@@ -22,10 +22,10 @@ class CategoryNaturalArea implements DataTransferObject, WithResponse
      * @param  array<int, NaturalArea>|null  $naturalAreas
      */
     public function __construct(
-        public int $id,
-        public ?string $name = null,
-        public ?string $description = null,
-        public ?array $naturalAreas = null,
+        public readonly int $id,
+        public readonly ?string $name = null,
+        public readonly ?string $description = null,
+        public readonly ?array $naturalAreas = null,
     ) {
     }
 

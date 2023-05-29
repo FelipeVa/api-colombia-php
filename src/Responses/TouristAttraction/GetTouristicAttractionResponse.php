@@ -8,7 +8,7 @@ use Saloon\Contracts\Response;
 /**
  * @phpstan-import-type TouristAttractionData from TouristAttraction
  */
-class GetTouristicAttractionResponse
+final class GetTouristicAttractionResponse
 {
     public static function make(Response $response): TouristAttraction
     {

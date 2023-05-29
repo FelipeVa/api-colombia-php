@@ -3,13 +3,14 @@
 namespace FelipeVa\ApiColombia\Requests\Department;
 
 use FelipeVa\ApiColombia\Objects\Department;
+use FelipeVa\ApiColombia\Objects\Listed;
 use FelipeVa\ApiColombia\Responses\Department\GetAllDepartmentResponse;
 use Saloon\Contracts\Response;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Plugins\AlwaysThrowOnErrors;
 
-class GetAllDepartmentRequest extends Request
+final class GetAllDepartmentRequest extends Request
 {
     use AlwaysThrowOnErrors;
 
@@ -21,9 +22,9 @@ class GetAllDepartmentRequest extends Request
     }
 
     /**
-     * @return array<int, Department>
+     * @return Listed<Department>
      */
-    public function createDtoFromResponse(Response $response): array
+    public function createDtoFromResponse(Response $response): Listed
     {
         return GetAllDepartmentResponse::make($response);
     }

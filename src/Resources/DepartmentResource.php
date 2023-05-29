@@ -2,6 +2,12 @@
 
 namespace FelipeVa\ApiColombia\Resources;
 
+use FelipeVa\ApiColombia\Objects\City;
+use FelipeVa\ApiColombia\Objects\Department;
+use FelipeVa\ApiColombia\Objects\Listed;
+use FelipeVa\ApiColombia\Objects\NaturalArea;
+use FelipeVa\ApiColombia\Objects\Paged;
+use FelipeVa\ApiColombia\Objects\TouristAttraction;
 use FelipeVa\ApiColombia\Requests\Department\GetAllDepartmentRequest;
 use FelipeVa\ApiColombia\Requests\Department\GetDepartmentByNameRequest;
 use FelipeVa\ApiColombia\Requests\Department\GetDepartmentBySearchRequest;
@@ -10,47 +16,70 @@ use FelipeVa\ApiColombia\Requests\Department\GetDepartmentNaturalAreaRequest;
 use FelipeVa\ApiColombia\Requests\Department\GetDepartmentRequest;
 use FelipeVa\ApiColombia\Requests\Department\GetDepartmentTouristAttractionRequest;
 use FelipeVa\ApiColombia\Requests\Department\GetPagedDepartmentRequest;
-use Saloon\Contracts\Response;
 
-class DepartmentResource extends Resource
+final class DepartmentResource extends Resource
 {
-    public function all(): Response
+    /**
+     * @return mixed|Listed<Department>
+     */
+    public function all(): mixed
     {
-        return $this->connector->send(new GetAllDepartmentRequest());
+        return $this->connector->send(new GetAllDepartmentRequest())->dto();
     }
 
-    public function get(int $departmentId): Response
+    /**
+     * @return mixed|Department
+     */
+    public function get(int $departmentId): mixed
     {
-        return $this->connector->send(new GetDepartmentRequest($departmentId));
+        return $this->connector->send(new GetDepartmentRequest($departmentId))->dto();
     }
 
-    public function getByName(string $departmentName): Response
+    /**
+     * @return mixed|Listed<Department>
+     */
+    public function getByName(string $departmentName): mixed
     {
-        return $this->connector->send(new GetDepartmentByNameRequest($departmentName));
+        return $this->connector->send(new GetDepartmentByNameRequest($departmentName))->dto();
     }
 
-    public function search(string $searchValue): Response
+    /**
+     * @return mixed|Listed<Department>
+     */
+    public function search(string $searchValue): mixed
     {
-        return $this->connector->send(new GetDepartmentBySearchRequest($searchValue));
+        return $this->connector->send(new GetDepartmentBySearchRequest($searchValue))->dto();
     }
 
-    public function paged(int $page, int $pageSize): Response
+    /**
+     * @return mixed|Paged<Department>
+     */
+    public function paged(int $page, int $pageSize): mixed
     {
-        return $this->connector->send(new GetPagedDepartmentRequest($page, $pageSize));
+        return $this->connector->send(new GetPagedDepartmentRequest($page, $pageSize))->dto();
     }
 
-    public function cities(int $departmentId): Response
+    /**
+     * @return mixed|Listed<City>
+     */
+    public function cities(int $departmentId): mixed
     {
-        return $this->connector->send(new GetDepartmentCityRequest($departmentId));
+        return $this->connector->send(new GetDepartmentCityRequest($departmentId))->dto();
     }
 
-    public function naturalAreas(int $departmentId): Response
+    /**
+     * @return mixed|Listed<NaturalArea>
+     */
+    public function naturalAreas(int $departmentId): mixed
     {
-        return $this->connector->send(new GetDepartmentNaturalAreaRequest($departmentId));
+        return $this->connector->send(new GetDepartmentNaturalAreaRequest($departmentId))->dto();
     }
 
-    public function touristAttractions(int $departmentId): Response
+    /**
+     * @return mixed|Listed<TouristAttraction>
+     */
+    public function touristAttractions(int $departmentId): mixed
     {
-        return $this->connector->send(new GetDepartmentTouristAttractionRequest($departmentId));
+        return $this->connector->send(new GetDepartmentTouristAttractionRequest($departmentId))->dto();
     }
 }

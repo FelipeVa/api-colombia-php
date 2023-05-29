@@ -8,7 +8,7 @@ use Saloon\Contracts\Response;
 /**
  * @phpstan-import-type DepartmentData from Department
  */
-class GetDepartmentResponse
+final class GetDepartmentResponse
 {
     public static function make(Response $response): Department
     {

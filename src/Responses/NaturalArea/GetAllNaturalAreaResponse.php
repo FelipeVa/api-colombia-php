@@ -2,26 +2,28 @@
 
 namespace FelipeVa\ApiColombia\Responses\NaturalArea;
 
+use FelipeVa\ApiColombia\Objects\Listed;
 use FelipeVa\ApiColombia\Objects\NaturalArea;
 use Saloon\Contracts\Response;
 
 /**
  * @phpstan-import-type NaturalAreaData from NaturalArea
  */
-class GetAllNaturalAreaResponse
+final class GetAllNaturalAreaResponse
 {
     /**
-     * @return array<int, NaturalArea>
+     * @return Listed<NaturalArea>
      */
-    public static function make(Response $response): array
+    public static function make(Response $response): Listed
     {
-        /** @var NaturalAreaData[] $data */
-        $data = $response->json();
+        /** @var NaturalAreaData[] $json */
+        $json = $response->json();
 
-        if ($data === []) {
-            return [];
-        }
+        /** @var Listed<NaturalArea> $data */
+        $data = Listed::from([
+            'data' => array_map(fn ($naturalArea): NaturalArea => NaturalArea::from($naturalArea), $json),
+        ]);
 
-        return array_map(fn ($naturalArea): NaturalArea => NaturalArea::from($naturalArea), $data);
+        return $data;
     }
 }

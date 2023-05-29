@@ -2,6 +2,7 @@
 
 namespace FelipeVa\ApiColombia\Requests\TouristAttraction;
 
+use FelipeVa\ApiColombia\Objects\Listed;
 use FelipeVa\ApiColombia\Objects\TouristAttraction;
 use FelipeVa\ApiColombia\Responses\TouristAttraction\GetAllTouristicAttractionResponse;
 use Saloon\Contracts\Response;
@@ -9,7 +10,7 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Plugins\AlwaysThrowOnErrors;
 
-class GetAllTouristicAttractionRequest extends Request
+final class GetAllTouristicAttractionRequest extends Request
 {
     use AlwaysThrowOnErrors;
 
@@ -21,9 +22,9 @@ class GetAllTouristicAttractionRequest extends Request
     }
 
     /**
-     * @return array<int, TouristAttraction>
+     * @return Listed<TouristAttraction>
      */
-    public function createDtoFromResponse(Response $response): array
+    public function createDtoFromResponse(Response $response): Listed
     {
         return GetAllTouristicAttractionResponse::make($response);
     }

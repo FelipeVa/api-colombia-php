@@ -2,13 +2,16 @@
 
 namespace FelipeVa\ApiColombia\Resources;
 
+use FelipeVa\ApiColombia\Objects\Country;
 use FelipeVa\ApiColombia\Requests\Country\GetCountryRequest;
-use Saloon\Contracts\Response;
 
-class CountryResource extends Resource
+final class CountryResource extends Resource
 {
-    public function get(string $country): Response
+    /**
+     * @return mixed|Country
+     */
+    public function get(string $country): mixed
     {
-        return $this->connector->send(new GetCountryRequest($country));
+        return $this->connector->send(new GetCountryRequest($country))->dto();
     }
 }

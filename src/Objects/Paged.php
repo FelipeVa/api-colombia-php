@@ -13,7 +13,7 @@ use Saloon\Traits\Responses\HasResponse;
  *
  * @implements DataTransferObject<PagedData>
  */
-class Paged implements DataTransferObject, WithResponse
+final class Paged implements DataTransferObject, WithResponse
 {
     use HasResponse;
 
@@ -21,10 +21,10 @@ class Paged implements DataTransferObject, WithResponse
      * @param  T[]|null  $data
      */
     public function __construct(
-        public int $page,
-        public int $pageSize,
-        public int $totalRecords,
-        public ?array $data = null,
+        public readonly int $page,
+        public readonly int $pageSize,
+        public readonly int $totalRecords,
+        public readonly ?array $data = null,
     ) {
 
     }

@@ -8,7 +8,7 @@ use Saloon\Contracts\Response;
 /**
  * @phpstan-import-type CategoryNaturalAreaData from CategoryNaturalArea
  */
-class GetCategoryNaturalAreaResponse
+final class GetCategoryNaturalAreaResponse
 {
     public static function make(Response $response): CategoryNaturalArea
     {

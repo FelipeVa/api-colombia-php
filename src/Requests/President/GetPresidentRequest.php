@@ -9,7 +9,7 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Plugins\AlwaysThrowOnErrors;
 
-class GetPresidentRequest extends Request
+final class GetPresidentRequest extends Request
 {
     use AlwaysThrowOnErrors;
 

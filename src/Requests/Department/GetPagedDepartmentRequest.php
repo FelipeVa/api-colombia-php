@@ -10,7 +10,7 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Plugins\AlwaysThrowOnErrors;
 
-class GetPagedDepartmentRequest extends Request
+final class GetPagedDepartmentRequest extends Request
 {
     use AlwaysThrowOnErrors;
 

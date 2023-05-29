@@ -8,7 +8,7 @@ use Saloon\Contracts\Response;
 /**
  * @phpstan-import-type RegionData from Region
  */
-class GetRegionResponse
+final class GetRegionResponse
 {
     public static function make(Response $response): Region
     {

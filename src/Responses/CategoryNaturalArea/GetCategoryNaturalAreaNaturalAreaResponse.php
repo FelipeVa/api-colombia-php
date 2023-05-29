@@ -1,25 +1,25 @@
 <?php
 
-namespace FelipeVa\ApiColombia\Responses\Department;
+namespace FelipeVa\ApiColombia\Responses\CategoryNaturalArea;
 
+use FelipeVa\ApiColombia\Objects\CategoryNaturalArea;
 use FelipeVa\ApiColombia\Objects\Listed;
 use FelipeVa\ApiColombia\Objects\NaturalArea;
 use Saloon\Contracts\Response;
 
 /**
- * @phpstan-import-type NaturalAreaData from NaturalArea
+ * @phpstan-import-type CategoryNaturalAreaData from CategoryNaturalArea
  */
-final class GetDepartmentNaturalAreaResponse
+final class GetCategoryNaturalAreaNaturalAreaResponse
 {
     /**
      * @return Listed<NaturalArea>
      */
     public static function make(Response $response): Listed
     {
-        /** @var array<int, array{naturalAreas: NaturalAreaData[]|null}> $json */
+        /** @var CategoryNaturalAreaData $json */
         $json = $response->json();
-        /** @var NaturalAreaData[] $naturalAreas */
-        $naturalAreas = $json[0]['naturalAreas'];
+        $naturalAreas = $json['naturalAreas'] ?? [];
 
         /** @var Listed<NaturalArea> $data */
         $data = Listed::from([

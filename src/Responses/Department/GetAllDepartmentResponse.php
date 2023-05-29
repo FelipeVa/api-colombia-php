@@ -3,25 +3,27 @@
 namespace FelipeVa\ApiColombia\Responses\Department;
 
 use FelipeVa\ApiColombia\Objects\Department;
+use FelipeVa\ApiColombia\Objects\Listed;
 use Saloon\Contracts\Response;
 
 /**
  * @phpstan-import-type DepartmentData from Department
  */
-class GetAllDepartmentResponse
+final class GetAllDepartmentResponse
 {
     /**
-     * @return array<int, Department>
+     * @return Listed<Department>
      */
-    public static function make(Response $response): array
+    public static function make(Response $response): Listed
     {
-        /** @var array<int, DepartmentData> $data */
-        $data = $response->json();
+        /** @var array<int, DepartmentData> $json */
+        $json = $response->json();
 
-        if ($data === []) {
-            return [];
-        }
+        /** @var Listed<Department> $data */
+        $data = Listed::from([
+            'data' => array_map(fn ($department): Department => Department::from($department), $json),
+        ]);
 
-        return array_map(fn ($department): Department => Department::from($department), $data);
+        return $data;
     }
 }

@@ -2,14 +2,15 @@
 
 namespace FelipeVa\ApiColombia\Requests\CategoryNaturalArea;
 
-use FelipeVa\ApiColombia\Objects\CategoryNaturalArea;
-use FelipeVa\ApiColombia\Responses\CategoryNaturalArea\GetCategoryNaturalAreaResponse;
+use FelipeVa\ApiColombia\Objects\Listed;
+use FelipeVa\ApiColombia\Objects\NaturalArea;
+use FelipeVa\ApiColombia\Responses\CategoryNaturalArea\GetCategoryNaturalAreaNaturalAreaResponse;
 use Saloon\Contracts\Response;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Plugins\AlwaysThrowOnErrors;
 
-class GetCategoryNaturalAreaAllNaturalAreaRequest extends Request
+final class GetCategoryNaturalAreaAllNaturalAreaRequest extends Request
 {
     use AlwaysThrowOnErrors;
 
@@ -25,8 +26,11 @@ class GetCategoryNaturalAreaAllNaturalAreaRequest extends Request
         return "/CategoryNaturalArea/$this->categoryNaturalAreaId/NaturalAreas";
     }
 
-    public function createDtoFromResponse(Response $response): CategoryNaturalArea
+    /**
+     * @return Listed<NaturalArea>
+     */
+    public function createDtoFromResponse(Response $response): Listed
     {
-        return GetCategoryNaturalAreaResponse::make($response);
+        return GetCategoryNaturalAreaNaturalAreaResponse::make($response);
     }
 }

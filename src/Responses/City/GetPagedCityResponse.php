@@ -9,7 +9,7 @@ use Saloon\Contracts\Response;
 /**
  * @phpstan-import-type PagedData from Paged
  */
-class GetPagedCityResponse
+final class GetPagedCityResponse
 {
     /**
      * TODO: fix workaround for phpstan

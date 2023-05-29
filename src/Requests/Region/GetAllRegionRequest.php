@@ -2,6 +2,7 @@
 
 namespace FelipeVa\ApiColombia\Requests\Region;
 
+use FelipeVa\ApiColombia\Objects\Listed;
 use FelipeVa\ApiColombia\Objects\Region;
 use FelipeVa\ApiColombia\Responses\Region\GetAllRegionResponse;
 use Saloon\Contracts\Response;
@@ -9,7 +10,7 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Plugins\AlwaysThrowOnErrors;
 
-class GetAllRegionRequest extends Request
+final class GetAllRegionRequest extends Request
 {
     use AlwaysThrowOnErrors;
 
@@ -21,9 +22,9 @@ class GetAllRegionRequest extends Request
     }
 
     /**
-     * @return array<int, Region>
+     * @return Listed<Region>
      */
-    public function createDtoFromResponse(Response $response): array
+    public function createDtoFromResponse(Response $response): Listed
     {
         return GetAllRegionResponse::make($response);
     }

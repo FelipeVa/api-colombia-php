@@ -2,26 +2,28 @@
 
 namespace FelipeVa\ApiColombia\Responses\President;
 
+use FelipeVa\ApiColombia\Objects\Listed;
 use FelipeVa\ApiColombia\Objects\President;
 use Saloon\Contracts\Response;
 
 /**
  * @phpstan-import-type PresidentData from President
  */
-class GetAllPresidentResponse
+final class GetAllPresidentResponse
 {
     /**
-     * @return array<int, President>
+     * @return Listed<President>
      */
-    public static function make(Response $response): array
+    public static function make(Response $response): Listed
     {
-        /** @var array<int, PresidentData> $data */
-        $data = $response->json();
+        /** @var array<int, PresidentData> $json */
+        $json = $response->json();
 
-        if ($data === []) {
-            return [];
-        }
+        /** @var Listed<President> $data */
+        $data = Listed::from([
+            'data' => array_map(fn ($president): President => President::from($president), $json),
+        ]);
 
-        return array_map(fn ($president): President => President::from($president), $data);
+        return $data;
     }
 }

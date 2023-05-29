@@ -2,37 +2,54 @@
 
 namespace FelipeVa\ApiColombia\Resources;
 
+use FelipeVa\ApiColombia\Objects\Listed;
+use FelipeVa\ApiColombia\Objects\NaturalArea;
+use FelipeVa\ApiColombia\Objects\Paged;
 use FelipeVa\ApiColombia\Requests\NaturalArea\GetAllNaturalAreaRequest;
 use FelipeVa\ApiColombia\Requests\NaturalArea\GetNaturalAreaByNameRequest;
 use FelipeVa\ApiColombia\Requests\NaturalArea\GetNaturalAreaBySearchRequest;
 use FelipeVa\ApiColombia\Requests\NaturalArea\GetNaturalAreaRequest;
 use FelipeVa\ApiColombia\Requests\NaturalArea\GetPagedNaturalAreaRequest;
-use Saloon\Contracts\Response;
 
-class NaturalAreaResource extends Resource
+final class NaturalAreaResource extends Resource
 {
-    public function all(): Response
+    /**
+     * @return mixed|Listed<NaturalArea>
+     */
+    public function all(): mixed
     {
-        return $this->connector->send(new GetAllNaturalAreaRequest());
+        return $this->connector->send(new GetAllNaturalAreaRequest())->dto();
     }
 
-    public function get(int $naturalAreaId): Response
+    /**
+     * @return mixed|NaturalArea
+     */
+    public function get(int $naturalAreaId): mixed
     {
-        return $this->connector->send(new GetNaturalAreaRequest($naturalAreaId));
+        return $this->connector->send(new GetNaturalAreaRequest($naturalAreaId))->dto();
     }
 
-    public function getByName(string $naturalAreaName): Response
+    /**
+     * @return mixed|Listed<NaturalArea>
+     */
+    public function getByName(string $naturalAreaName): mixed
     {
-        return $this->connector->send(new GetNaturalAreaByNameRequest($naturalAreaName));
+        return $this->connector->send(new GetNaturalAreaByNameRequest($naturalAreaName))->dto();
     }
 
-    public function search(string $searchValue): Response
+    /**
+     * @return mixed|Listed<NaturalArea>
+     */
+    public function search(string $searchValue): mixed
     {
-        return $this->connector->send(new GetNaturalAreaBySearchRequest($searchValue));
+        return $this->connector->send(new GetNaturalAreaBySearchRequest($searchValue))->dto();
     }
 
-    public function paged(int $page, int $pageSize): Response
+    /**
+     * @return mixed|Paged<NaturalArea>
+     */
+    public function paged(int $page, int $pageSize): mixed
     {
-        return $this->connector->send(new GetPagedNaturalAreaRequest($page, $pageSize));
+        return $this->connector->send(new GetPagedNaturalAreaRequest($page, $pageSize))->dto();
     }
 }
