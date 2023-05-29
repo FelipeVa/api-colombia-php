@@ -22,7 +22,7 @@ foreach ($departments as $department) {
   - [Region Resource](#region-resource)
   - [Department Resource](#department-resource)
   - [City Resource](#city-resource)
-  - [President Resource](#president-resource)\
+  - [President Resource](#president-resource)
   - [Tourist Attraction Resource](#tourist-attraction-resource)
   - [Category Natural Area Resource](#category-natural-area-resource)
   - [Natural Area Resource](#natural-area-resource)
