@@ -11,7 +11,7 @@ use Saloon\Contracts\Response;
  * @phpstan-import-type MapData from Map
  * @phpstan-import-type CityData from City
  */
-class GetAllMapResponse
+final class GetAllMapResponse
 {
     /**
      * @return Listed<Map>
@@ -21,6 +21,7 @@ class GetAllMapResponse
         /** @var MapData[] $json */
         $json = $response->json();
 
+        /** @var Listed<Map> $data */
         $data = Listed::from([
             'data' => array_map(fn ($map): Map => Map::from($map), $json),
         ]);

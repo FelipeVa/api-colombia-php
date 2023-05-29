@@ -8,7 +8,7 @@ use FelipeVa\ApiColombia\Requests\Region\GetAllRegionRequest;
 use FelipeVa\ApiColombia\Requests\Region\GetRegionDepartmentRequest;
 use FelipeVa\ApiColombia\Requests\Region\GetRegionRequest;
 
-class RegionResource extends Resource
+final class RegionResource extends Resource
 {
     /**
      * @return mixed|Listed<Region>
@@ -19,7 +19,6 @@ class RegionResource extends Resource
     }
 
     /**
-     * @param int $regionId
      * @return mixed|Region
      */
     public function get(int $regionId): mixed
@@ -28,7 +27,6 @@ class RegionResource extends Resource
     }
 
     /**
-     * @param int $regionId
      * @return mixed|Region
      */
     public function departments(int $regionId): mixed

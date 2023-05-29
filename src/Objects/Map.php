@@ -13,7 +13,7 @@ use Saloon\Traits\Responses\HasResponse;
  *
  * @implements DataTransferObject<MapData>
  */
-class Map implements DataTransferObject, WithResponse
+final class Map implements DataTransferObject, WithResponse
 {
     use HasResponse;
 
@@ -21,13 +21,13 @@ class Map implements DataTransferObject, WithResponse
      * @param  string[]|null  $urlImages
      */
     public function __construct(
-        public int $id,
-        public ?string $name = null,
-        public ?string $description = null,
-        public ?int $departmentId = null,
-        public ?array $urlImages = null,
-        public ?string $urlSource = null,
-        public ?Department $department = null,
+        public readonly int $id,
+        public readonly ?string $name = null,
+        public readonly ?string $description = null,
+        public readonly ?int $departmentId = null,
+        public readonly ?array $urlImages = null,
+        public readonly ?string $urlSource = null,
+        public readonly ?Department $department = null,
     ) {
     }
 

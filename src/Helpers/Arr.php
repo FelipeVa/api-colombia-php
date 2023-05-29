@@ -2,7 +2,7 @@
 
 namespace FelipeVa\ApiColombia\Helpers;
 
-class Arr
+final class Arr
 {
     /**
      * @template TKey of array-key

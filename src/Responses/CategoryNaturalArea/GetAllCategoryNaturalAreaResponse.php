@@ -9,11 +9,9 @@ use Saloon\Contracts\Response;
 /**
  * @phpstan-import-type CategoryNaturalAreaData from CategoryNaturalArea
  */
-class GetAllCategoryNaturalAreaResponse
+final class GetAllCategoryNaturalAreaResponse
 {
-
     /**
-     * @param Response $response
      * @return Listed<CategoryNaturalArea>
      */
     public static function make(Response $response): Listed
@@ -23,7 +21,7 @@ class GetAllCategoryNaturalAreaResponse
 
         /** @var Listed<CategoryNaturalArea> $data */
         $data = Listed::from([
-            'data' => array_map(fn ($categoryNaturalArea): CategoryNaturalArea => CategoryNaturalArea::from($categoryNaturalArea), $json)
+            'data' => array_map(fn ($categoryNaturalArea): CategoryNaturalArea => CategoryNaturalArea::from($categoryNaturalArea), $json),
         ]);
 
         return $data;

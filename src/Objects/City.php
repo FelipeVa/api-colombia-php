@@ -15,7 +15,7 @@ use Saloon\Traits\Responses\HasResponse;
  *
  * @implements DataTransferObject<CityData>
  */
-class City implements DataTransferObject, WithResponse
+final class City implements DataTransferObject, WithResponse
 {
     use HasResponse;
 
@@ -24,16 +24,16 @@ class City implements DataTransferObject, WithResponse
      * @param  mixed[]|null  $presidents
      */
     public function __construct(
-        public int $id,
-        public int $departmentId,
-        public ?string $name = null,
-        public ?string $description = null,
-        public ?int $surface = null,
-        public ?int $population = null,
-        public ?string $postalCode = null,
-        public ?Department $department = null,
-        public ?array $touristAttractions = null,
-        public ?array $presidents = null,
+        public readonly int $id,
+        public readonly int $departmentId,
+        public readonly ?string $name = null,
+        public readonly ?string $description = null,
+        public readonly ?int $surface = null,
+        public readonly ?int $population = null,
+        public readonly ?string $postalCode = null,
+        public readonly ?Department $department = null,
+        public readonly ?array $touristAttractions = null,
+        public readonly ?array $presidents = null,
     ) {
     }
 

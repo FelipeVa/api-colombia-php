@@ -8,7 +8,7 @@ use Saloon\Contracts\Response;
 /**
  * @phpstan-import-type MapData from Map
  */
-class GetMapResponse
+final class GetMapResponse
 {
     public static function make(Response $response): Map
     {

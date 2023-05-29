@@ -9,7 +9,7 @@ use Saloon\Contracts\Response;
 /**
  * @phpstan-import-type NaturalAreaData from NaturalArea
  */
-class GetDepartmentNaturalAreaResponse
+final class GetDepartmentNaturalAreaResponse
 {
     /**
      * @return Listed<NaturalArea>

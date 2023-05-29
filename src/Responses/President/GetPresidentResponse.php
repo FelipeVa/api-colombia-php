@@ -8,7 +8,7 @@ use Saloon\Contracts\Response;
 /**
  * @phpstan-import-type PresidentData from President
  */
-class GetPresidentResponse
+final class GetPresidentResponse
 {
     public static function make(Response $response): President
     {

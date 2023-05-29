@@ -13,7 +13,7 @@ use Saloon\Traits\Responses\HasResponse;
  *
  * @implements DataTransferObject<RegionData>
  */
-class Region implements DataTransferObject, WithResponse
+final class Region implements DataTransferObject, WithResponse
 {
     use HasResponse;
 
@@ -21,10 +21,10 @@ class Region implements DataTransferObject, WithResponse
      * @param  array<int, Department>|null  $departments
      */
     public function __construct(
-        public int $id,
-        public ?string $name = null,
-        public ?string $description = null,
-        public ?array $departments = null,
+        public readonly int $id,
+        public readonly ?string $name = null,
+        public readonly ?string $description = null,
+        public readonly ?array $departments = null,
     ) {
     }
 

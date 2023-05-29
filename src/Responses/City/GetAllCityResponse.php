@@ -9,7 +9,7 @@ use Saloon\Contracts\Response;
 /**
  * @phpstan-import-type CityData from City
  */
-class GetAllCityResponse
+final class GetAllCityResponse
 {
     /**
      * @return Listed<City>

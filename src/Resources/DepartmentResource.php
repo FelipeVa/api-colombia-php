@@ -16,9 +16,8 @@ use FelipeVa\ApiColombia\Requests\Department\GetDepartmentNaturalAreaRequest;
 use FelipeVa\ApiColombia\Requests\Department\GetDepartmentRequest;
 use FelipeVa\ApiColombia\Requests\Department\GetDepartmentTouristAttractionRequest;
 use FelipeVa\ApiColombia\Requests\Department\GetPagedDepartmentRequest;
-use Saloon\Contracts\Response;
 
-class DepartmentResource extends Resource
+final class DepartmentResource extends Resource
 {
     /**
      * @return mixed|Listed<Department>
@@ -29,7 +28,6 @@ class DepartmentResource extends Resource
     }
 
     /**
-     * @param int $departmentId
      * @return mixed|Department
      */
     public function get(int $departmentId): mixed
@@ -38,7 +36,6 @@ class DepartmentResource extends Resource
     }
 
     /**
-     * @param string $departmentName
      * @return mixed|Listed<Department>
      */
     public function getByName(string $departmentName): mixed
@@ -47,7 +44,6 @@ class DepartmentResource extends Resource
     }
 
     /**
-     * @param string $searchValue
      * @return mixed|Listed<Department>
      */
     public function search(string $searchValue): mixed
@@ -56,8 +52,6 @@ class DepartmentResource extends Resource
     }
 
     /**
-     * @param int $page
-     * @param int $pageSize
      * @return mixed|Paged<Department>
      */
     public function paged(int $page, int $pageSize): mixed
@@ -66,7 +60,6 @@ class DepartmentResource extends Resource
     }
 
     /**
-     * @param int $departmentId
      * @return mixed|Listed<City>
      */
     public function cities(int $departmentId): mixed
@@ -75,7 +68,6 @@ class DepartmentResource extends Resource
     }
 
     /**
-     * @param int $departmentId
      * @return mixed|Listed<NaturalArea>
      */
     public function naturalAreas(int $departmentId): mixed
@@ -84,7 +76,6 @@ class DepartmentResource extends Resource
     }
 
     /**
-     * @param int $departmentId
      * @return mixed|Listed<TouristAttraction>
      */
     public function touristAttractions(int $departmentId): mixed

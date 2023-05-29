@@ -13,21 +13,20 @@ use Saloon\Traits\Responses\HasResponse;
  *
  * @implements DataTransferObject<ListedData>
  */
-class Listed implements DataTransferObject, WithResponse
+final class Listed implements DataTransferObject, WithResponse
 {
     use HasResponse;
 
     /**
-     * @param T[] $data
+     * @param  T[]  $data
      */
     public function __construct(
-        public array $data = [],
+        public readonly array $data = [],
     ) {
     }
 
-
     /**
-     * @param ListedData $data
+     * @param  ListedData  $data
      * @return Listed<T>
      */
     public static function from(array $data): Listed

@@ -10,9 +10,8 @@ use FelipeVa\ApiColombia\Requests\NaturalArea\GetNaturalAreaByNameRequest;
 use FelipeVa\ApiColombia\Requests\NaturalArea\GetNaturalAreaBySearchRequest;
 use FelipeVa\ApiColombia\Requests\NaturalArea\GetNaturalAreaRequest;
 use FelipeVa\ApiColombia\Requests\NaturalArea\GetPagedNaturalAreaRequest;
-use Saloon\Contracts\Response;
 
-class NaturalAreaResource extends Resource
+final class NaturalAreaResource extends Resource
 {
     /**
      * @return mixed|Listed<NaturalArea>
@@ -23,7 +22,6 @@ class NaturalAreaResource extends Resource
     }
 
     /**
-     * @param int $naturalAreaId
      * @return mixed|NaturalArea
      */
     public function get(int $naturalAreaId): mixed
@@ -32,7 +30,6 @@ class NaturalAreaResource extends Resource
     }
 
     /**
-     * @param string $naturalAreaName
      * @return mixed|Listed<NaturalArea>
      */
     public function getByName(string $naturalAreaName): mixed
@@ -41,7 +38,6 @@ class NaturalAreaResource extends Resource
     }
 
     /**
-     * @param string $searchValue
      * @return mixed|Listed<NaturalArea>
      */
     public function search(string $searchValue): mixed
@@ -50,8 +46,6 @@ class NaturalAreaResource extends Resource
     }
 
     /**
-     * @param int $page
-     * @param int $pageSize
      * @return mixed|Paged<NaturalArea>
      */
     public function paged(int $page, int $pageSize): mixed

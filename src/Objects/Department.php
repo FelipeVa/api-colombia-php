@@ -16,7 +16,7 @@ use Saloon\Traits\Responses\HasResponse;
  *
  * @implements DataTransferObject<DepartmentData>
  */
-class Department implements DataTransferObject, WithResponse
+final class Department implements DataTransferObject, WithResponse
 {
     use HasResponse;
 
@@ -26,22 +26,22 @@ class Department implements DataTransferObject, WithResponse
      * @param  Map[]|null  $maps
      */
     public function __construct(
-        public int $id,
-        public ?int $surface,
-        public int $countryId,
-        public ?int $regionId = null,
-        public ?string $name = null,
-        public ?string $phonePrefix = null,
-        public ?int $population = null,
-        public ?int $municipalities = null,
-        public ?int $cityCapitalId = null,
-        public ?string $description = null,
-        public ?City $cityCapital = null,
-        public ?string $country = null,
-        public ?array $cities = null,
-        public ?string $region = null,
-        public ?array $naturalAreas = null,
-        public ?array $maps = null,
+        public readonly int $id,
+        public readonly int $surface,
+        public readonly int $countryId,
+        public readonly ?int $regionId = null,
+        public readonly ?string $name = null,
+        public readonly ?string $phonePrefix = null,
+        public readonly ?int $population = null,
+        public readonly ?int $municipalities = null,
+        public readonly ?int $cityCapitalId = null,
+        public readonly ?string $description = null,
+        public readonly ?City $cityCapital = null,
+        public readonly ?string $country = null,
+        public readonly ?array $cities = null,
+        public readonly ?string $region = null,
+        public readonly ?array $naturalAreas = null,
+        public readonly ?array $maps = null,
     ) {
     }
 

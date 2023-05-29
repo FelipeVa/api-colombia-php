@@ -10,9 +10,8 @@ use FelipeVa\ApiColombia\Requests\City\GetCityByNameRequest;
 use FelipeVa\ApiColombia\Requests\City\GetCityBySearchRequest;
 use FelipeVa\ApiColombia\Requests\City\GetCityRequest;
 use FelipeVa\ApiColombia\Requests\City\GetPagedCityRequest;
-use Saloon\Contracts\Response;
 
-class CityResource extends Resource
+final class CityResource extends Resource
 {
     /**
      * @return mixed|Listed<City>
@@ -23,7 +22,6 @@ class CityResource extends Resource
     }
 
     /**
-     * @param int $cityId
      * @return mixed|City
      */
     public function get(int $cityId): mixed
@@ -32,7 +30,6 @@ class CityResource extends Resource
     }
 
     /**
-     * @param string $cityName
      * @return mixed|Listed<City>
      */
     public function getByName(string $cityName): mixed
@@ -41,7 +38,6 @@ class CityResource extends Resource
     }
 
     /**
-     * @param string $searchValue
      * @return mixed|Listed<City>
      */
     public function search(string $searchValue): mixed
@@ -50,8 +46,6 @@ class CityResource extends Resource
     }
 
     /**
-     * @param int $page
-     * @param int $pageSize
      * @return mixed|Paged<City>
      */
     public function paged(int $page, int $pageSize): mixed

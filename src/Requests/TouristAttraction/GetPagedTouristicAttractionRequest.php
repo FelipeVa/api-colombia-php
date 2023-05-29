@@ -13,7 +13,7 @@ use Saloon\Traits\Plugins\AlwaysThrowOnErrors;
 /**
  * TODO: throws 404 from api
  */
-class GetPagedTouristicAttractionRequest extends Request
+final class GetPagedTouristicAttractionRequest extends Request
 {
     use AlwaysThrowOnErrors;
 

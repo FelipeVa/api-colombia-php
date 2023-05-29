@@ -13,7 +13,7 @@ use Saloon\Traits\Plugins\AlwaysThrowOnErrors;
 /**
  * TODO: this throws a 404
  */
-class GetTouristicAttractionBySearchRequest extends Request
+final class GetTouristicAttractionBySearchRequest extends Request
 {
     use AlwaysThrowOnErrors;
 

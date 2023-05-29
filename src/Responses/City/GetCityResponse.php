@@ -8,7 +8,7 @@ use Saloon\Contracts\Response;
 /**
  * @phpstan-import-type CityData from City
  */
-class GetCityResponse
+final class GetCityResponse
 {
     public static function make(Response $response): City
     {

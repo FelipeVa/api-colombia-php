@@ -12,21 +12,21 @@ use Saloon\Traits\Responses\HasResponse;
  *
  * @implements DataTransferObject<PresidentData>
  */
-class President implements DataTransferObject, WithResponse
+final class President implements DataTransferObject, WithResponse
 {
     use HasResponse;
 
     public function __construct(
-        public int $id,
-        public string $name,
-        public int $cityId,
-        public ?string $image = null,
-        public ?string $lastName = null,
-        public ?string $startPeriodDate = null,
-        public ?string $endPeriodDate = null,
-        public ?string $politicalParty = null,
-        public ?string $description = null,
-        public ?City $city = null,
+        public readonly int $id,
+        public readonly string $name,
+        public readonly int $cityId,
+        public readonly ?string $image = null,
+        public readonly ?string $lastName = null,
+        public readonly ?string $startPeriodDate = null,
+        public readonly ?string $endPeriodDate = null,
+        public readonly ?string $politicalParty = null,
+        public readonly ?string $description = null,
+        public readonly ?City $city = null,
     ) {
     }
 

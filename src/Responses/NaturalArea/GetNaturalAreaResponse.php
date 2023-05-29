@@ -10,7 +10,7 @@ use Saloon\Contracts\Response;
  * @phpstan-import-type NaturalAreaData from NaturalArea
  * @phpstan-import-type CityData from City
  */
-class GetNaturalAreaResponse
+final class GetNaturalAreaResponse
 {
     public static function make(Response $response): NaturalArea
     {

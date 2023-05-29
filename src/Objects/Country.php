@@ -11,7 +11,7 @@ use Saloon\Traits\Responses\HasResponse;
  *
  * @implements DataTransferObject<CountryData>
  */
-class Country implements DataTransferObject, WithResponse
+final class Country implements DataTransferObject, WithResponse
 {
     use HasResponse;
 
@@ -21,26 +21,26 @@ class Country implements DataTransferObject, WithResponse
      * @param  string[]|null  $flags
      */
     public function __construct(
-        public int $id,
-        public int $surface,
-        public int $population,
-        public ?array $languages = null,
-        public ?string $name = null,
-        public ?string $description = null,
-        public ?string $stateCapital = null,
-        public ?string $timeZone = null,
-        public ?string $currency = null,
-        public ?string $currencyCode = null,
-        public ?string $currencySymbol = null,
-        public ?string $isoCode = null,
-        public ?string $internetDomain = null,
-        public ?string $phonePrefix = null,
-        public ?string $radioPrefix = null,
-        public ?string $aircraftPrefix = null,
-        public ?string $subRegion = null,
-        public ?string $region = null,
-        public ?array $borders = null,
-        public ?array $flags = null,
+        public readonly int $id,
+        public readonly int $surface,
+        public readonly int $population,
+        public readonly ?array $languages = null,
+        public readonly ?string $name = null,
+        public readonly ?string $description = null,
+        public readonly ?string $stateCapital = null,
+        public readonly ?string $timeZone = null,
+        public readonly ?string $currency = null,
+        public readonly ?string $currencyCode = null,
+        public readonly ?string $currencySymbol = null,
+        public readonly ?string $isoCode = null,
+        public readonly ?string $internetDomain = null,
+        public readonly ?string $phonePrefix = null,
+        public readonly ?string $radioPrefix = null,
+        public readonly ?string $aircraftPrefix = null,
+        public readonly ?string $subRegion = null,
+        public readonly ?string $region = null,
+        public readonly ?array $borders = null,
+        public readonly ?array $flags = null,
     ) {
     }
 

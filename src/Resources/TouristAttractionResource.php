@@ -10,9 +10,8 @@ use FelipeVa\ApiColombia\Requests\TouristAttraction\GetPagedTouristicAttractionR
 use FelipeVa\ApiColombia\Requests\TouristAttraction\GetTouristicAttractionByNameRequest;
 use FelipeVa\ApiColombia\Requests\TouristAttraction\GetTouristicAttractionBySearchRequest;
 use FelipeVa\ApiColombia\Requests\TouristAttraction\GetTouristicAttractionRequest;
-use Saloon\Contracts\Response;
 
-class TouristAttractionResource extends Resource
+final class TouristAttractionResource extends Resource
 {
     /**
      * @return mixed|Listed<TouristAttraction>
@@ -23,7 +22,6 @@ class TouristAttractionResource extends Resource
     }
 
     /**
-     * @param int $touristicAttractionId
      * @return mixed|TouristAttraction
      */
     public function get(int $touristicAttractionId): mixed
@@ -32,7 +30,6 @@ class TouristAttractionResource extends Resource
     }
 
     /**
-     * @param string $presidentName
      * @return mixed|Listed<TouristAttraction>
      */
     public function getByName(string $presidentName): mixed
@@ -41,7 +38,6 @@ class TouristAttractionResource extends Resource
     }
 
     /**
-     * @param string $searchValue
      * @return mixed|Listed<TouristAttraction>
      */
     public function search(string $searchValue): mixed
@@ -50,8 +46,6 @@ class TouristAttractionResource extends Resource
     }
 
     /**
-     * @param int $page
-     * @param int $pageSize
      * @return mixed|Paged<TouristAttraction>
      */
     public function paged(int $page, int $pageSize): mixed

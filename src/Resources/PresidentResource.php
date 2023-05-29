@@ -11,7 +11,7 @@ use FelipeVa\ApiColombia\Requests\President\GetPresidentByNameRequest;
 use FelipeVa\ApiColombia\Requests\President\GetPresidentBySearchRequest;
 use FelipeVa\ApiColombia\Requests\President\GetPresidentRequest;
 
-class PresidentResource extends Resource
+final class PresidentResource extends Resource
 {
     /**
      * @return mixed|Listed<President>
@@ -22,7 +22,6 @@ class PresidentResource extends Resource
     }
 
     /**
-     * @param int $presidentId
      * @return mixed|President
      */
     public function get(int $presidentId): mixed
@@ -31,7 +30,6 @@ class PresidentResource extends Resource
     }
 
     /**
-     * @param string $presidentName
      * @return mixed|Listed<President>
      */
     public function getByName(string $presidentName): mixed
@@ -40,7 +38,6 @@ class PresidentResource extends Resource
     }
 
     /**
-     * @param string $searchValue
      * @return mixed|Listed<President>
      */
     public function search(string $searchValue): mixed
@@ -49,8 +46,6 @@ class PresidentResource extends Resource
     }
 
     /**
-     * @param int $page
-     * @param int $pageSize
      * @return mixed|Paged<President>
      */
     public function paged(int $page, int $pageSize): mixed

@@ -13,7 +13,7 @@ use Saloon\Traits\Responses\HasResponse;
  *
  * @implements DataTransferObject<TouristAttractionData>
  */
-class TouristAttraction implements DataTransferObject, WithResponse
+final class TouristAttraction implements DataTransferObject, WithResponse
 {
     use HasResponse;
 
@@ -21,14 +21,14 @@ class TouristAttraction implements DataTransferObject, WithResponse
      * @param  array<int, string>|null  $images
      */
     public function __construct(
-        public int $id,
-        public string $name,
-        public ?string $description = null,
-        public ?array $images = null,
-        public ?string $latitude = null,
-        public ?string $longitude = null,
-        public ?int $cityId = null,
-        public ?City $city = null,
+        public readonly int $id,
+        public readonly string $name,
+        public readonly ?string $description = null,
+        public readonly ?array $images = null,
+        public readonly ?string $latitude = null,
+        public readonly ?string $longitude = null,
+        public readonly ?int $cityId = null,
+        public readonly ?City $city = null,
     ) {
     }
 

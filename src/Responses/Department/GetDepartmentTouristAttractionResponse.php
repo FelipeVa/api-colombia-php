@@ -9,7 +9,7 @@ use Saloon\Contracts\Response;
 /**
  * @phpstan-import-type TouristAttractionData from TouristAttraction
  */
-class GetDepartmentTouristAttractionResponse
+final class GetDepartmentTouristAttractionResponse
 {
     /**
      * @return Listed<TouristAttraction>

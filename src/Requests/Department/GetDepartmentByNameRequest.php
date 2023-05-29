@@ -10,7 +10,7 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Plugins\AlwaysThrowOnErrors;
 
-class GetDepartmentByNameRequest extends Request
+final class GetDepartmentByNameRequest extends Request
 {
     use AlwaysThrowOnErrors;
 

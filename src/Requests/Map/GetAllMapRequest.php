@@ -10,7 +10,7 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Plugins\AlwaysThrowOnErrors;
 
-class GetAllMapRequest extends Request
+final class GetAllMapRequest extends Request
 {
     use AlwaysThrowOnErrors;
 

@@ -15,7 +15,7 @@ use FelipeVa\ApiColombia\Resources\RegionResource;
 use FelipeVa\ApiColombia\Resources\TouristAttractionResource;
 use Saloon\Http\Connector;
 
-class Factory extends Connector
+final class Factory extends Connector
 {
     public string $apiVersion = 'v1';
 

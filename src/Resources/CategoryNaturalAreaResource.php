@@ -8,7 +8,7 @@ use FelipeVa\ApiColombia\Requests\CategoryNaturalArea\GetAllCategoryNaturalAreaR
 use FelipeVa\ApiColombia\Requests\CategoryNaturalArea\GetCategoryNaturalAreaAllNaturalAreaRequest;
 use FelipeVa\ApiColombia\Requests\CategoryNaturalArea\GetCategoryNaturalAreaRequest;
 
-class CategoryNaturalAreaResource extends Resource
+final class CategoryNaturalAreaResource extends Resource
 {
     /**
      * @return mixed|Listed<CategoryNaturalArea>
@@ -19,7 +19,6 @@ class CategoryNaturalAreaResource extends Resource
     }
 
     /**
-     * @param int $categoryNaturalAreaId
      * @return mixed|CategoryNaturalArea
      */
     public function get(int $categoryNaturalAreaId): mixed
@@ -28,7 +27,6 @@ class CategoryNaturalAreaResource extends Resource
     }
 
     /**
-     * @param int $categoryNaturalAreaId
      * @return mixed|CategoryNaturalArea
      */
     public function naturalAreas(int $categoryNaturalAreaId): mixed

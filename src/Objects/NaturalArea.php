@@ -13,21 +13,21 @@ use Saloon\Traits\Responses\HasResponse;
  *
  * @implements DataTransferObject<NaturalAreaData>
  */
-class NaturalArea implements DataTransferObject, WithResponse
+final class NaturalArea implements DataTransferObject, WithResponse
 {
     use HasResponse;
 
     public function __construct(
-        public int $id,
-        public string $name,
-        public int $categoryNaturalAreaId,
-        public ?Department $department = null,
-        public ?int $areaGroupId = null,
-        public ?int $departmentId = null,
-        public ?int $daneCode = null,
-        public ?float $landArea = null,
-        public ?int $maritimeArea = null,
-        public ?CategoryNaturalArea $categoryNaturalArea = null,
+        public readonly int $id,
+        public readonly string $name,
+        public readonly int $categoryNaturalAreaId,
+        public readonly ?Department $department = null,
+        public readonly ?int $areaGroupId = null,
+        public readonly ?int $departmentId = null,
+        public readonly ?int $daneCode = null,
+        public readonly ?float $landArea = null,
+        public readonly ?float $maritimeArea = null,
+        public readonly ?CategoryNaturalArea $categoryNaturalArea = null,
     ) {
     }
 

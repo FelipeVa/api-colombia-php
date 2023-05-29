@@ -21,7 +21,7 @@ final class GetAllRegionResponse
 
         /** @var Listed<Region> $data */
         $data = Listed::from([
-           'data' => array_map(fn ($region): Region => Region::from($region), $json),
+            'data' => array_map(fn ($region): Region => Region::from($region), $json),
         ]);
 
         return $data;

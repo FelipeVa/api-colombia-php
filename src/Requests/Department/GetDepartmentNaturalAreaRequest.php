@@ -10,7 +10,7 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Plugins\AlwaysThrowOnErrors;
 
-class GetDepartmentNaturalAreaRequest extends Request
+final class GetDepartmentNaturalAreaRequest extends Request
 {
     use AlwaysThrowOnErrors;
 

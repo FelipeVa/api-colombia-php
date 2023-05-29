@@ -9,7 +9,7 @@ use Saloon\Contracts\Response;
 /**
  * @phpstan-import-type RegionData from Region
  */
-class GetRegionDepartmentResponse
+final class GetRegionDepartmentResponse
 {
     /**
      * @return array<int, Department>

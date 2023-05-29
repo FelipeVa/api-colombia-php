@@ -2,7 +2,7 @@
 
 namespace FelipeVa\ApiColombia;
 
-class ApiColombia
+final class ApiColombia
 {
     public static function client(string $apiVersion = 'v1'): Factory
     {

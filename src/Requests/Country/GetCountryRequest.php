@@ -9,7 +9,7 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Plugins\AlwaysThrowOnErrors;
 
-class GetCountryRequest extends Request
+final class GetCountryRequest extends Request
 {
     use AlwaysThrowOnErrors;
 

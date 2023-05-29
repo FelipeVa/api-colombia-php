@@ -9,7 +9,7 @@ use Saloon\Contracts\Response;
 /**
  * @phpstan-import-type PresidentData from President
  */
-class GetAllPresidentResponse
+final class GetAllPresidentResponse
 {
     /**
      * @return Listed<President>

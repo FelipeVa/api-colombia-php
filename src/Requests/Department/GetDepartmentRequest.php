@@ -12,7 +12,7 @@ use Saloon\Traits\Plugins\AlwaysThrowOnErrors;
 /*
  * @TODO: review endpoint, is currently throwing a 404
  */
-class GetDepartmentRequest extends Request
+final class GetDepartmentRequest extends Request
 {
     use AlwaysThrowOnErrors;
 
