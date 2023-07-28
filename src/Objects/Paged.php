@@ -9,7 +9,7 @@ use Saloon\Traits\Responses\HasResponse;
 /**
  * @template T
  *
- * @phpstan-type PagedData array{page: int, pageSize: int, totalRecords: int, data: array<int, T>|null}
+ * @phpstan-type PagedData array{page: int, pageSize: int, pageCount: int, totalRecords: int, data: array<int, T>|null}
  *
  * @implements DataTransferObject<PagedData>
  */

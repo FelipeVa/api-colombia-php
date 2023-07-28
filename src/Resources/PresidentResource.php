@@ -39,7 +39,6 @@ final class PresidentResource extends Resource
     }
 
     /**
-     * @param int $year
      * @return mixed|Listed<President>
      */
     public function getByYear(int $year): mixed
