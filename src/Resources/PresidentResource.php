@@ -9,6 +9,7 @@ use FelipeVa\ApiColombia\Requests\President\GetAllPresidentRequest;
 use FelipeVa\ApiColombia\Requests\President\GetPagedPresidentRequest;
 use FelipeVa\ApiColombia\Requests\President\GetPresidentByNameRequest;
 use FelipeVa\ApiColombia\Requests\President\GetPresidentBySearchRequest;
+use FelipeVa\ApiColombia\Requests\President\GetPresidentByYearRequest;
 use FelipeVa\ApiColombia\Requests\President\GetPresidentRequest;
 
 final class PresidentResource extends Resource
@@ -35,6 +36,14 @@ final class PresidentResource extends Resource
     public function getByName(string $presidentName): mixed
     {
         return $this->connector->send(new GetPresidentByNameRequest($presidentName))->dto();
+    }
+
+    /**
+     * @return mixed|Listed<President>
+     */
+    public function getByYear(int $year): mixed
+    {
+        return $this->connector->send(new GetPresidentByYearRequest($year))->dto();
     }
 
     /**

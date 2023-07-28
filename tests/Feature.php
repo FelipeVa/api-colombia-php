@@ -235,6 +235,17 @@ it('can retrieve president by name', function () {
         ->and($response->getResponse()->status())->toBe(200);
 });
 
+it('can retrieve president by year', function () {
+    $client = mockClient();
+
+    $response = $client->presidents()->getByYear(2023);
+
+    expect($response->data)->toBeArray()
+        ->and($response)->toBeInstanceOf(Listed::class)
+        ->and($response->data)->toContainOnlyInstancesOf(President::class)
+        ->and($response->getResponse()->status())->toBe(200);
+});
+
 it('can retrieve president by search', function () {
     $client = mockClient();
 

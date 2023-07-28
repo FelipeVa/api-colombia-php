@@ -12,6 +12,13 @@ foreach ($departments as $department) {
 ```
 ---
 
+<p align="center">
+    <a href="https://github.com/felipeva/api-colombia-php/actions"><img alt="GitHub Workflow Status (main)" src="https://img.shields.io/github/actions/workflow/status/felipeva/api-colombia-php/tests.yml?branch=master&label=tests&style=round-square"></a>
+    <a href="https://packagist.org/packages/felipeva/api-colombia-php"><img alt="Total Downloads" src="https://img.shields.io/packagist/dt/felipeva/api-colombia-php"></a>
+    <a href="https://packagist.org/packages/felipeva/api-colombia-php"><img alt="Latest Version" src="https://img.shields.io/packagist/v/felipeva/api-colombia-php"></a>
+    <a href="https://packagist.org/packages/felipeva/api-colombia-php"><img alt="License" src="https://img.shields.io/github/license/felipeva/api-colombia-php"></a>
+</p>
+
 ***Api Colombia PHP*** is a PHP API client that lets you easily interact with the [Api Colombia](https://github.com/Mteheran/api-colombia).
 
 ## Table of Contents
@@ -453,8 +460,21 @@ foreach ($president->data as $president) {
 #### `getByYear`
 Retrieves a president by its year.
 
-To be implemented..
+```php
+use FelipeVa\ApiColombia\ApiColombia;
 
+$client = ApiColombia::client();
+$president = $client->presidents()->getByYear(2023);
+
+// Returns a Listed object of President objects
+foreach ($president->data as $president) {
+    $president->id;
+    $president->name;
+    $president->lastName;
+    $president->description;
+    // ...
+}
+```
 
 #### `search`
 Searches for presidents by the following fields: Name, Description, PoliticalParty,LastName

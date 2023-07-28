@@ -30,6 +30,7 @@ use FelipeVa\ApiColombia\Requests\President\GetAllPresidentRequest;
 use FelipeVa\ApiColombia\Requests\President\GetPagedPresidentRequest;
 use FelipeVa\ApiColombia\Requests\President\GetPresidentByNameRequest;
 use FelipeVa\ApiColombia\Requests\President\GetPresidentBySearchRequest;
+use FelipeVa\ApiColombia\Requests\President\GetPresidentByYearRequest;
 use FelipeVa\ApiColombia\Requests\President\GetPresidentRequest;
 use FelipeVa\ApiColombia\Requests\Region\GetAllRegionRequest;
 use FelipeVa\ApiColombia\Requests\Region\GetRegionDepartmentRequest;
@@ -75,6 +76,7 @@ function mockClient(array $mocks = []): Factory
         GetAllPresidentRequest::class => MockResponse::fixture('presidents.get.all'),
         GetPresidentRequest::class => MockResponse::fixture('presidents.get'),
         GetPresidentByNameRequest::class => MockResponse::fixture('presidents.get.by-name'),
+        GetPresidentByYearRequest::class => MockResponse::fixture('presidents.get.by-year'),
         GetPresidentBySearchRequest::class => MockResponse::fixture('presidents.get.by-search'),
         GetPagedPresidentRequest::class => MockResponse::fixture('presidents.get.paged'),
         GetAllTouristicAttractionRequest::class => MockResponse::fixture('touristicAttraction.get.all'),
