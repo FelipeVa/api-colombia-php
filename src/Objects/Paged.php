@@ -24,6 +24,7 @@ final class Paged implements DataTransferObject, WithResponse
         public readonly int $page,
         public readonly int $pageSize,
         public readonly int $totalRecords,
+        public readonly int $pageCount,
         public readonly ?array $data = null,
     ) {
 
